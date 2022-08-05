@@ -1,0 +1,17 @@
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bgHero {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    height: 100vh;
+    background: radial-gradient( 54.95% 56.45% at 51.25% 40.19%, rgba(255, 196, 103, 0.57) 0%, rgba(255, 178, 58, 0.64) 0%, rgba(217, 217, 217, 0) 97.65%)
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    ;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: -1;
+}

@@ -1,0 +1,21 @@
+.bgWave {
+    background-image: url("../../../../public/images/bgwave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+}
+
+.signInWrapper {
+    display: flex;
+    height: 100vh;
+}
+
+.formWrapper {
+    width: 50%;
+}
+
+.signinContainer {
+    display: flex;
+    height: 100vh;
+}
