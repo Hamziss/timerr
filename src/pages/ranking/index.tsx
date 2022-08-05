@@ -20,7 +20,7 @@ const Users = ({ users }: Props) => (
 export default Users
 
 export async function getServerSideProps() {
-	const res = await getData("/users")
+	const res = await getData("users")
 	const { users } = res
 
 	return {
