@@ -10,7 +10,7 @@ import { authOptions } from "../auth/[...nextauth]"
 
 connectDB()
 
-export default async function handler(
+export default async function handlerUsers(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {

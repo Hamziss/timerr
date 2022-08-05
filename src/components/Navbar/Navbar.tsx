@@ -20,26 +20,32 @@ import classes from "./style.module.css"
 const DropdownItems = [
 	{
 		label: "Dashboard",
+		url: "/dashboard",
 		icon: <Image src={Monitor} />,
 	},
 	{
 		label: "Garden",
+		url: "/garden",
 		icon: <Image src={GardenIcon} />,
 	},
 	{
 		label: "Ranking",
+		url: "/users",
 		icon: <Image src={Ranking} />,
 	},
 	{
 		label: "Profile",
+		url: "/profile",
 		icon: <Image src={UserIcon} />,
 	},
 	{
 		label: "Settings",
+		url: "/settings",
 		icon: <Image src={Settings} />,
 	},
 	{
 		label: "Logout",
+		url: "/logout",
 		icon: <Image src={Logout} />,
 	},
 ]
@@ -114,7 +120,7 @@ const Navbar = () => {
 						<div className={classes.dropdown}>
 							{DropdownItems.map((item, index) => (
 								<button type="submit" onClick={() => setIsOpen(false)}>
-									<NextLink href={`/${item.label.toLowerCase()}`} key={index}>
+									<NextLink href={`/${item.url}`} key={index}>
 										<a className={classes.dropdownItem}>
 											<div className={classes.imgContainer}>{item.icon}</div>
 											<span>{item.label}</span>

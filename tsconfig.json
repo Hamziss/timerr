@@ -22,7 +22,7 @@
 		"src/types/**/*.ts",
 		"src/pages/api/auth/[...nextauth].ts",
 		"src/pages/api/auth/[...nextauth].ts",
-		"src/pages/ranking/[id].jsx",
+		"src/pages/users/[id].jsx",
 		"src/zustand/userStore.ts",
 		"src/zustand/store.js",
 		"src/theme/index.js",
