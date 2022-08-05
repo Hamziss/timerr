@@ -1,9 +1,7 @@
 import { useSession } from "next-auth/react"
 
-type Props = {}
-
-const Garden = (props: Props) => {
-	const { data: token, status } = useSession()
+const Garden = () => {
+	const { data: token } = useSession()
 	console.log(token)
 	return <div>Garden</div>
 }

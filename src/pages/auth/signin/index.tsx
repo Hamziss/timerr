@@ -3,14 +3,12 @@ import { ErrorMessage, Field, Formik } from "formik"
 import { signIn, SignInResponse } from "next-auth/react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
 import classes from "./style.module.css"
 
 export default function SignIn() {
 	const router = useRouter()
-	const [error, setError] = useState(null)
 
 	return (
 		<div className={classes.signinContainer}>
@@ -36,9 +34,8 @@ export default function SignIn() {
 						})) as SignInResponse
 
 						if (res?.error) {
-							setError(res.error)
+							// setError(res.error)
 						} else {
-							setError(null)
 							toast.success("Successfully signed in")
 						}
 						if (res.url) router.push(res.url)

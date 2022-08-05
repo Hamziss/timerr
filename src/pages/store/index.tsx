@@ -1,9 +1,7 @@
 import { useEffect } from "react"
 import useStore from "../../zustand/store"
 
-type Props = {}
-
-const Store = (props: Props) => {
+const Store = () => {
 	const { getAnimals, animalState } = useStore()
 	useEffect(() => {
 		getAnimals()

@@ -7,7 +7,7 @@ const getData = async(url, token) => {
             "Authorization": token
         }
     })
-    console.log(res)
+
     const data = res.json()
     return data
 }

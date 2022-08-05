@@ -1,14 +1,11 @@
 /* eslint-disable import/no-named-as-default */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ErrorMessage, Field, Formik } from "formik"
-import { useState } from "react"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
 import postData from "../../../services/fetchData/postData"
 
 export default function SignIn() {
-	const [error, setError] = useState(null)
-
 	return (
 		<Formik
 			initialValues={{ firstName: "", email: "", password: "", lastName: "" }}
@@ -46,9 +43,6 @@ export default function SignIn() {
 				<form onSubmit={formik.handleSubmit}>
 					<div className="bg-red-400">
 						<div className="bg-white">
-							<div className="text-red-400 text-md text-center rounded p-2">
-								{error}
-							</div>
 							<div className="mb-6">
 								<label htmlFor="firstName" className="bold">
 									First Name
