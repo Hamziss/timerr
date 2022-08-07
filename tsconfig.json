@@ -26,7 +26,8 @@
 		"src/zustand/userStore.ts",
 		"src/zustand/store.js",
 		"src/theme/index.js",
-		"src/components/Timer/Separtors.js"
+		"src/components/Timer/Separtors.js",
+		"src/hooks/useClickOutside.js"
 	],
 	"exclude": ["node_modules"]
 }

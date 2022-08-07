@@ -1,8 +1,11 @@
+/* eslint-disable import/no-unresolved */
+/* eslint-disable import/extensions */
 import { SessionProvider } from "next-auth/react"
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import "swiper/css/bundle"
 import Navbar from "../components/Navbar/Navbar"
 import "../styles/globals.css"
 

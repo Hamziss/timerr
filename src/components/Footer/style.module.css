@@ -1,0 +1,49 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+.upperDiv,
+.footer>div:last-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.upperDiv {
+    background-color: #353535;
+    gap: 14px;
+    padding: 14px 10px;
+}
+
+.upperDiv>span {
+    color: #fff;
+    font-size: clamp(16px, 1vw, 35px);
+}
+
+.upperDiv>button {
+    padding: 5px;
+    display: flex;
+    border: 1px solid #fea71f;
+    border-radius: 22px;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 13px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.footer>div:last-child {
+    background-color: #222222;
+    padding: 14px 0;
+    font-size: clamp(13px, 0.7vw, 30px);
+}
+
+.footer>div:last-child>span {
+    color: var(--main-orange);
+}

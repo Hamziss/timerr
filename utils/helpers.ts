@@ -43,3 +43,35 @@ export function choosetree(time: number) {
 	}
 	return "brazilian tree"
 }
+export function getRandomQuote(array: any[]) {
+	const randomIndex = Math.floor(Math.random() * array.length)
+
+	const item: any = array[randomIndex]
+
+	return item
+}
+export function chooseBgColorCard(rarety: string) {
+	switch (rarety) {
+		case "epique":
+			return "#FFB23A"
+		case "rare":
+			return "#8ABDEC"
+		case "legendary":
+			return "#3D396D"
+		default:
+			return ""
+	}
+}
+
+export function choosebgColorUpperDivCard(rarety: string) {
+	switch (rarety) {
+		case "epique":
+			return "#FF9F0B"
+		case "rare":
+			return "#4A8DCA"
+		case "legendary":
+			return "#322D6B"
+		default:
+			return "black"
+	}
+}

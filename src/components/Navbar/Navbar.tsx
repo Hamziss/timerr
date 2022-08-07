@@ -6,54 +6,69 @@ import Image from "next/image"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
+import useClickOutside from "../../hooks/useClickOutside"
 
 import GardenIcon from "../../../public/images/garden.png"
 import Settings from "../../../public/images/gear.png"
 import Logo from "../../../public/images/logo.png"
 import Logout from "../../../public/images/logout.png"
 import Monitor from "../../../public/images/monitor.png"
+import Polygon from "../../../public/images/Polygon.png"
 import Ranking from "../../../public/images/ranking.png"
 import UserIcon from "../../../public/images/user.png"
 import useStore from "../../zustand/store"
 import classes from "./style.module.css"
 
-const DropdownItems = [
-	{
-		label: "Dashboard",
-		url: "/dashboard",
-		icon: <Image src={Monitor} />,
-	},
-	{
-		label: "Garden",
-		url: "/garden",
-		icon: <Image src={GardenIcon} />,
-	},
-	{
-		label: "Ranking",
-		url: "/users",
-		icon: <Image src={Ranking} />,
-	},
-	{
-		label: "Profile",
-		url: "/profile",
-		icon: <Image src={UserIcon} />,
-	},
-	{
-		label: "Settings",
-		url: "/settings",
-		icon: <Image src={Settings} />,
-	},
-	{
-		label: "Logout",
-		url: "/logout",
-		icon: <Image src={Logout} />,
-	},
-]
 const Navbar = () => {
 	const { getUser, logout, userState } = useStore()
 	const { pathname } = useRouter()
 	const { data: session, status } = useSession()
 	const [isOpen, setIsOpen] = useState(false)
+	const domNode = useClickOutside(() => {
+		setIsOpen(false)
+	})
+	const DropdownItems = [
+		{
+			label: "Dashboard",
+			url: "/dashboard",
+			icon: <Image src={Monitor} />,
+		},
+		{
+			label: "Garden",
+			url: "/garden",
+			icon: <Image src={GardenIcon} />,
+		},
+		{
+			label: "Ranking",
+			url: "/users",
+			icon: <Image src={Ranking} />,
+		},
+		{
+			label: "Profile",
+			url: "/profile",
+			icon: <Image src={UserIcon} />,
+		},
+		{
+			label: "Settings",
+			url: "/settings",
+			icon: <Image src={Settings} />,
+		},
+		{
+			label: (
+				<button
+					type="submit"
+					onClick={() => {
+						signOut()
+						logout()
+					}}
+				>
+					logout
+				</button>
+			),
+			url: "/logout",
+			icon: <Image src={Logout} />,
+		},
+	]
 	useEffect(() => {
 		if (status === "authenticated") {
 			getUser(session.user?._id!)
@@ -95,15 +110,6 @@ const Navbar = () => {
 				<>
 					{" "}
 					<div className={classes.rightContainer}>
-						<button
-							type="submit"
-							onClick={() => {
-								signOut()
-								logout()
-							}}
-						>
-							logout
-						</button>
 						<Avatar
 							alt="Remy Sharp"
 							sx={{
@@ -117,18 +123,23 @@ const Navbar = () => {
 						/>
 					</div>
 					{isOpen && (
-						<div className={classes.dropdown}>
-							{DropdownItems.map((item, index) => (
-								<button type="submit" onClick={() => setIsOpen(false)}>
-									<NextLink href={`/${item.url}`} key={index}>
-										<a className={classes.dropdownItem}>
-											<div className={classes.imgContainer}>{item.icon}</div>
-											<span>{item.label}</span>
-										</a>
-									</NextLink>
-								</button>
-							))}
-						</div>
+						<>
+							<div className={classes.PolygonContainer}>
+								<Image src={Polygon} />
+							</div>
+							<div ref={domNode} className={classes.dropdown}>
+								{DropdownItems.map((item, index) => (
+									<button type="submit" onClick={() => setIsOpen(false)}>
+										<NextLink href={`/${item.url}`} key={index}>
+											<a className={classes.dropdownItem}>
+												<div className={classes.imgContainer}>{item.icon}</div>
+												<span>{item.label}</span>
+											</a>
+										</NextLink>
+									</button>
+								))}
+							</div>
+						</>
 					)}
 				</>
 			) : (

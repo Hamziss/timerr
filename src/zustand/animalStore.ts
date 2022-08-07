@@ -2,7 +2,7 @@ import axios from "axios"
 import { IAnimal } from "../types/animal"
 
 const animalState = {
-	animals: [] as unknown as IAnimal,
+	animals: [] as unknown as IAnimal[],
 	loading: true,
 	error: undefined,
 }

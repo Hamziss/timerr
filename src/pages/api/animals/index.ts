@@ -14,7 +14,6 @@ export default async function animalshandler(
 	const { method } = req
 	const { name, category, price, feeling, ownedSince, rarety, image } = req.body
 	const session = await getSession(req, res, authOptions)
-	console.log(session)
 
 	switch (method) {
 		case "GET":
