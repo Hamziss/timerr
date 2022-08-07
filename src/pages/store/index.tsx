@@ -9,6 +9,7 @@ import { FreeMode } from "swiper"
 import "swiper/css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import circle from "../../../public/images/Home/circle.png"
+import rightCircle from "../../../public/images/Home/circleRight.png"
 import bimbo from "../../../public/images/Store/bimbo.png"
 import girafe from "../../../public/images/Store/girafe.png"
 import store from "../../../public/images/Store/store.png"
@@ -43,7 +44,7 @@ const Store = ({
 						<Image layout="responsive" src={circle} />
 					</div>
 					<div className={classes.circleContainer2}>
-						<Image layout="responsive" src={circle} />
+						<Image layout="responsive" src={rightCircle} />
 					</div>
 					<div className={classes.mainTitle}>
 						<h1>Store</h1>
@@ -89,13 +90,13 @@ const Store = ({
 							<span className={classes.epique}>Epique</span>
 
 							<Swiper
-								slidesPerView={2}
+								slidesPerView={1}
 								spaceBetween={10}
-								style={{ width: "100%" }}
+								style={{ width: "100%", marginBottom: "25px" }}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
-										slidesPerView: 2,
+										slidesPerView: 1,
 										spaceBetween: 20,
 									},
 									768: {
@@ -126,13 +127,13 @@ const Store = ({
 						<>
 							<span className={classes.legendary}>Legendary</span>
 							<Swiper
-								slidesPerView={2}
+								slidesPerView={1}
 								spaceBetween={10}
-								style={{ width: "100%" }}
+								style={{ width: "100%", marginBottom: "25px" }}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
-										slidesPerView: 2,
+										slidesPerView: 1,
 										spaceBetween: 20,
 									},
 									768: {
@@ -163,13 +164,13 @@ const Store = ({
 						<>
 							<span className={classes.rare}>Rare</span>
 							<Swiper
-								slidesPerView={2}
+								slidesPerView={1}
 								spaceBetween={10}
-								style={{ width: "100%" }}
+								style={{ width: "100%", marginBottom: "25px" }}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
-										slidesPerView: 2,
+										slidesPerView: 1,
 										spaceBetween: 20,
 									},
 									768: {

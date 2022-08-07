@@ -1,10 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ErrorMessage, Field, Formik } from "formik"
 import { signIn, SignInResponse } from "next-auth/react"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
+import google from "../../../../public/images/google.png"
+import logo from "../../../../public/images/logo.png"
 import classes from "./style.module.css"
 
 export default function SignIn() {
@@ -13,6 +16,11 @@ export default function SignIn() {
 	return (
 		<div className={classes.signinContainer}>
 			<div className={classes.formWrapper}>
+				<Link href="/">
+					<div className={classes.logo}>
+						<Image width={50} height={35} src={logo} />
+					</div>
+				</Link>
 				<h1>Sign in</h1>
 				<p>Enter your credentials to access your account </p>
 				<Formik
@@ -45,13 +53,17 @@ export default function SignIn() {
 					{formik => (
 						<form onSubmit={formik.handleSubmit}>
 							<div className="bg-white">
-								<button type="submit">Sign in with Google</button>
+								<button className={classes.google} type="submit">
+									<Image height={25} width={25} src={google} />
+									Sign in with Google
+								</button>
+
 								<div className={classes.separator}>
 									<div />
 									or
 									<div />
 								</div>
-								<div className="mb-4">
+								<div className={classes.boxInput}>
 									<label htmlFor="email" className="upold">
 										Email
 										<Field
@@ -59,15 +71,15 @@ export default function SignIn() {
 											aria-label="enter your email"
 											aria-required="true"
 											type="text"
-											className="w-full "
+											className={classes.input}
 										/>
 									</label>
 
-									<div className="text-sm">
+									<div className={classes.errorText}>
 										<ErrorMessage name="email" />
 									</div>
 								</div>
-								<div className="mb-6">
+								<div className={classes.boxInput}>
 									<label htmlFor="password" className="upfont-bold">
 										password
 										<Field
@@ -75,11 +87,11 @@ export default function SignIn() {
 											aria-label="enter your password"
 											aria-required="true"
 											type="password"
-											className="w-fne"
+											className={classes.input}
 										/>
 									</label>
 
-									<div className="textt-sm">
+									<div className={classes.errorText}>
 										<ErrorMessage name="password" />
 									</div>
 								</div>
@@ -92,7 +104,10 @@ export default function SignIn() {
 					)}
 				</Formik>
 				<p className={classes.newMember}>
-					Not a member?<Link href="/auth/signup">Sign up</Link>
+					Not a member?
+					<Link href="/auth/signup">
+						<span className={classes.signup}> Sign up</span>
+					</Link>
 				</p>
 			</div>
 			<div className={classes.bgWave} />

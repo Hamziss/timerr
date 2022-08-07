@@ -96,10 +96,9 @@
 
 .circleContainer2 {
     height: 2px;
-    transform: translate(8vw, 1px);
     z-index: -1;
     width: 22vw;
-    max-width: 650px;
+    max-width: 281px;
     position: absolute;
     right: 0;
     top: 434px;
