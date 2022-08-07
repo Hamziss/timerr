@@ -65,7 +65,7 @@ const Navbar = () => {
 					logout
 				</button>
 			),
-			url: "/logout",
+			url: "/",
 			icon: <Image src={Logout} />,
 		},
 	]

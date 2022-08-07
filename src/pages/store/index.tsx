@@ -87,13 +87,11 @@ const Store = ({
 					{(ShowAnimals === "All" || ShowAnimals === "Epique") && (
 						<>
 							<span className={classes.epique}>Epique</span>
+
 							<Swiper
 								slidesPerView={2}
 								spaceBetween={10}
 								style={{ width: "100%" }}
-								pagination={{
-									clickable: true,
-								}}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
@@ -102,19 +100,20 @@ const Store = ({
 									},
 									768: {
 										slidesPerView: 3,
-										spaceBetween: 30,
+										spaceBetween: 20,
 									},
 									1024: {
 										slidesPerView: 3,
-										spaceBetween: 100,
+										spaceBetween: 50,
 									},
 									1524: {
 										slidesPerView: 4,
-										spaceBetween: 100,
+										spaceBetween: 70,
 									},
 								}}
 								className="mySwiper"
 							>
+								<div className={classes.whiteEffect} />
 								{epiqueAnimals.map(animal => (
 									<SwiperSlide style={{ minWidth: "200px" }} key={animal._id}>
 										<AnimalCard animal={animal} />
@@ -130,9 +129,6 @@ const Store = ({
 								slidesPerView={2}
 								spaceBetween={10}
 								style={{ width: "100%" }}
-								pagination={{
-									clickable: true,
-								}}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
@@ -141,19 +137,20 @@ const Store = ({
 									},
 									768: {
 										slidesPerView: 3,
-										spaceBetween: 30,
+										spaceBetween: 20,
 									},
 									1024: {
 										slidesPerView: 3,
-										spaceBetween: 100,
+										spaceBetween: 50,
 									},
 									1524: {
 										slidesPerView: 4,
-										spaceBetween: 100,
+										spaceBetween: 70,
 									},
 								}}
 								className="mySwiper"
 							>
+								<div className={classes.whiteEffect} />
 								{legendaryAnimals.map(animal => (
 									<SwiperSlide key={animal._id}>
 										<AnimalCard animal={animal} />
@@ -169,9 +166,6 @@ const Store = ({
 								slidesPerView={2}
 								spaceBetween={10}
 								style={{ width: "100%" }}
-								pagination={{
-									clickable: true,
-								}}
 								modules={[FreeMode]}
 								breakpoints={{
 									640: {
@@ -180,19 +174,20 @@ const Store = ({
 									},
 									768: {
 										slidesPerView: 3,
-										spaceBetween: 30,
+										spaceBetween: 20,
 									},
 									1024: {
 										slidesPerView: 3,
-										spaceBetween: 100,
+										spaceBetween: 50,
 									},
 									1524: {
 										slidesPerView: 4,
-										spaceBetween: 100,
+										spaceBetween: 70,
 									},
 								}}
 								className="mySwiper"
 							>
+								<div className={classes.whiteEffect} />
 								{rareAnimals.map(animal => (
 									<SwiperSlide key={animal._id}>
 										<AnimalCard animal={animal} />
