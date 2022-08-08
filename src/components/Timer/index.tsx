@@ -5,7 +5,7 @@ import SettingsIcon from "@mui/icons-material/Settings"
 import { useSession } from "next-auth/react"
 import Head from "next/head"
 import Image from "next/image"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import {
 	buildStyles,
 	CircularProgressbarWithChildren,
@@ -15,7 +15,9 @@ import Bousole from "../../../public/images/Home/bousole.png"
 import Clock from "../../../public/images/Home/Clock.png"
 import { formatTime, updateFavicon, updateTitle } from "../../../utils/helpers"
 import useCountdown from "../../hooks/useCountdown"
+import withNoSSR from "../../hooks/useNoSSR"
 import useStore from "../../zustand/store"
+import Settings from "../Settings"
 import RadialSeparators from "./Separtors"
 import classes from "./style.module.css"
 
@@ -33,6 +35,8 @@ const Timer = () => {
 	const [mode, setmode] = useState("POMODORO")
 	const { status } = useSession()
 	const [timer, setTimer] = useState(settings.timepomodoro)
+
+	const [showSettings, setShowSettings] = useState(false)
 	const [pomodoroCount, setPomodoroCount] = useState(0)
 	const { ticking, start, stop, reset, timeLeft, progress } = useCountdown({
 		minutes: timer,
@@ -52,6 +56,10 @@ const Timer = () => {
 				if (status === "authenticated") {
 					updateUser(settings.timepomodoro)
 				}
+				reset()
+				if (settings.autoStartShortBreaks) {
+					start()
+				}
 			} else if (
 				mode === "POMODORO" &&
 				pomodoroCount === settings.longbreakevery
@@ -61,14 +69,25 @@ const Timer = () => {
 				if (status === "authenticated") {
 					updateUser(settings.timepomodoro)
 				}
+				reset()
+				if (settings.autoStartLongBreaks) {
+					start()
+				}
 			} else if (mode === "SHORT_BREAK") {
 				setmode("POMODORO")
 				setTimer(settings.timepomodoro)
+				reset()
+				if (settings.autoStartPomodoros) {
+					start()
+				}
 			} else if (mode === "LONG_BREAK") {
 				setmode("POMODORO")
 				setTimer(settings.timepomodoro)
+				reset()
+				if (settings.autoStartPomodoros) {
+					start()
+				}
 			}
-			reset()
 		},
 	})
 	// eslint-disable-next-line no-shadow
@@ -94,11 +113,31 @@ const Timer = () => {
 			start()
 		}
 	}, [start, stop, ticking])
+
+	useEffect(() => {
+		// rerender when settings changes
+		if (mode === "SHORT_BREAK") {
+			setmode("SHORT_BREAK")
+			setTimer(settings.shortbreak)
+		} else if (mode === "LONG_BREAK") {
+			setmode("LONG_BREAK")
+			setTimer(settings.longbreak)
+		} else if (mode === "POMODORO") {
+			setmode("POMODORO")
+			setTimer(settings.timepomodoro)
+		}
+	}, [showSettings, settings, mode])
 	return (
 		<>
 			<Head>
 				<title>{updateTitle(timeLeft, mode)}</title>
 			</Head>
+			{showSettings && (
+				<Settings
+					settingsZustand={settings}
+					setShowSettings={setShowSettings}
+				/>
+			)}
 			<div className={classes.timerContainer}>
 				<div className={classes.clockContainer}>
 					<Image priority layout="fill" placeholder="blur" src={Clock} />
@@ -131,7 +170,7 @@ const Timer = () => {
 					>
 						Long Break
 					</button>
-					<button type="submit">
+					<button type="submit" onClick={() => setShowSettings(true)}>
 						<SettingsIcon />
 					</button>
 				</div>
@@ -194,4 +233,4 @@ const Timer = () => {
 	)
 }
 
-export default Timer
+export default withNoSSR(Timer)

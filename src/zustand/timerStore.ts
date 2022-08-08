@@ -1,9 +1,12 @@
 const timerState = {
 	settings: {
-		timepomodoro: 1,
-		shortbreak: 1,
-		longbreak: 2,
+		timepomodoro: 25,
+		shortbreak: 5,
+		longbreak: 15,
 		longbreakevery: 4,
+		autoStartPomodoros: false,
+		autoStartShortBreaks: false,
+		autoStartLongBreaks: false,
 	},
 }
 
@@ -12,13 +15,19 @@ const timerStore = (set: any) => ({
 	updateSettings: async (settings: any) => {
 		set(
 			(state: any) => {
-				state.timerState.settings.timepodmoro = settings.timepodmoro
+				state.timerState.settings.timepomodoro = settings.timepomodoro
 				state.timerState.settings.shortbreak = settings.shortbreak
 				state.timerState.settings.longbreak = settings.longbreak
 				state.timerState.settings.longbreakevery = settings.longbreakevery
+				state.timerState.settings.autoStartPomodoros =
+					settings.autoStartPomodoros
+				state.timerState.settings.autoStartShortBreaks =
+					settings.autoStartShortBreaks
+				state.timerState.settings.autoStartLongBreaks =
+					settings.autoStartLongBreaks
 			},
 			false,
-			"animals/fetch_request"
+			"timer/fetch_request"
 		)
 	},
 })

@@ -75,7 +75,10 @@ const Store = ({
 									value={ShowAnimals}
 									onChange={handleChange}
 									displayEmpty
-									inputProps={{ "aria-label": "Without label" }}
+									inputProps={{
+										MenuProps: { disableScrollLock: true },
+										"aria-label": "Without label",
+									}}
 								>
 									<MenuItem value="All">All</MenuItem>
 									<MenuItem value="Epique">Epique</MenuItem>

@@ -9,7 +9,6 @@ import { useEffect, useState } from "react"
 import useClickOutside from "../../hooks/useClickOutside"
 
 import GardenIcon from "../../../public/images/garden.png"
-import Settings from "../../../public/images/gear.png"
 import Logo from "../../../public/images/logo.png"
 import Logout from "../../../public/images/logout.png"
 import Monitor from "../../../public/images/monitor.png"
@@ -30,42 +29,38 @@ const Navbar = () => {
 	const DropdownItems = [
 		{
 			label: "Dashboard",
-			url: "/dashboard",
+			url: "dashboard",
 			icon: <Image src={Monitor} />,
 		},
 		{
 			label: "Garden",
-			url: "/garden",
+			url: "garden",
 			icon: <Image src={GardenIcon} />,
 		},
 		{
 			label: "Ranking",
-			url: "/users",
+			url: "users",
 			icon: <Image src={Ranking} />,
 		},
 		{
 			label: "Profile",
-			url: "/profile",
+			url: "profile",
 			icon: <Image src={UserIcon} />,
 		},
-		{
-			label: "Settings",
-			url: "/settings",
-			icon: <Image src={Settings} />,
-		},
+
 		{
 			label: (
-				<button
-					type="submit"
+				// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+				<div
 					onClick={() => {
 						signOut()
 						logout()
 					}}
 				>
 					logout
-				</button>
+				</div>
 			),
-			url: "/",
+			url: "",
 			icon: <Image src={Logout} />,
 		},
 	]
@@ -129,8 +124,12 @@ const Navbar = () => {
 							</div>
 							<div ref={domNode} className={classes.dropdown}>
 								{DropdownItems.map((item, index) => (
-									<button type="submit" onClick={() => setIsOpen(false)}>
-										<NextLink href={`/${item.url}`} key={index}>
+									<button
+										type="submit"
+										key={index}
+										onClick={() => setIsOpen(false)}
+									>
+										<NextLink href={`/${item.url}`}>
 											<a className={classes.dropdownItem}>
 												<div className={classes.imgContainer}>{item.icon}</div>
 												<span>{item.label}</span>

@@ -4,6 +4,7 @@ import { signIn, SignInResponse } from "next-auth/react"
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useState } from "react"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
 import google from "../../../../public/images/google.png"
@@ -12,6 +13,7 @@ import classes from "./style.module.css"
 
 export default function SignIn() {
 	const router = useRouter()
+	const [Error, setError] = useState<string | null>(null)
 
 	return (
 		<div className={classes.signinContainer}>
@@ -42,7 +44,7 @@ export default function SignIn() {
 						})) as SignInResponse
 
 						if (res?.error) {
-							// setError(res.error)
+							setError(res.error)
 						} else {
 							toast.success("Successfully signed in")
 						}
@@ -95,7 +97,7 @@ export default function SignIn() {
 										<ErrorMessage name="password" />
 									</div>
 								</div>
-
+								<span className={classes.errorText}>{Error}</span>
 								<button type="submit" className={classes.btnSubmit}>
 									{formik.isSubmitting ? "Please wait..." : "Sign In"}
 								</button>
@@ -104,7 +106,7 @@ export default function SignIn() {
 					)}
 				</Formik>
 				<p className={classes.newMember}>
-					Not a member?
+					Not a member ?
 					<Link href="/auth/signup">
 						<span className={classes.signup}> Sign up</span>
 					</Link>

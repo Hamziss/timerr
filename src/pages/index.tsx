@@ -7,6 +7,7 @@ import arrowRight from "../../public/images/Home/arrowRight.png"
 import cirle from "../../public/images/Home/circle.png"
 import cirleBoy from "../../public/images/Home/circleBoy.png"
 import cirleGirl from "../../public/images/Home/circleGirl.png"
+import circleHero from "../../public/images/Home/circleHero.png"
 import girlBubble1 from "../../public/images/Home/girlBubble1.png"
 import girlBubble2 from "../../public/images/Home/girlBubble2.png"
 import leftCorne from "../../public/images/Home/leftCorne.svg"
@@ -42,6 +43,9 @@ const Home: NextPage = () => {
 	return (
 		<main className={classes.main}>
 			<div className={classes.bgHero} />
+			<div className={classes.circleContainer}>
+				<Image layout="responsive" src={circleHero} />
+			</div>
 			<section className={classes.heroSection}>
 				<Timer />
 			</section>
@@ -53,7 +57,7 @@ const Home: NextPage = () => {
 					<div className={classes.sparkle}>
 						<Image src={Sparkle} />
 					</div>
-					<div>
+					<div className={classes.quotetextContainer}>
 						<span>&quot;{quote.content}&quot;</span> -
 						<span>{quote.author}</span>
 					</div>

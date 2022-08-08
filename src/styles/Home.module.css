@@ -23,24 +23,29 @@
     display: flex;
     position: relative;
     align-items: center;
-    height: 83vw;
     max-height: 736px;
+    flex-direction: column;
+    width: 100%;
 }
 
 .cirleGirlContainer {
-    width: 35vw;
-    max-width: 420px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 27vw;
+    max-width: 225px;
     margin-bottom: auto;
-    transform: translate(4vw, 0px);
     margin-left: auto;
 }
 
 .cirleBoyContainer {
-    max-width: 420px;
-    width: 35vw;
+    max-width: 225px;
+    width: 27vw;
     margin-top: auto;
     margin-right: auto;
-    transform: translate(-4vw, 0px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
 
 .quoteContainer {
@@ -53,6 +58,7 @@
     font-style: italic;
     font-weight: 400;
     font-size: clamp(18px, 1.6vw, 45px);
+    margin: 7vw 0;
 }
 
 .sparkle:first-child {
@@ -194,12 +200,24 @@
     justify-content: center;
 }
 
+.circleContainer {
+    height: 2px;
+    z-index: -1;
+    width: 14vw;
+    max-width: 274px;
+    position: absolute;
+    left: 0;
+    top: 104px;
+}
+
+.quotetextContainer>span:last-child {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 300;
+    color: #000000;
+}
+
 @media (max-width: 768px) {
-    .cirleBoyContainer {
-        position: static;
-        transform: translate(-69px, 0px);
-        margin-right: auto;
-    }
     .sectionStore {
         flex-direction: column;
     }
