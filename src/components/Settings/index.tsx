@@ -123,7 +123,10 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							/>
 						</div>
 					</div>
-					<p className={classes.note}>{NOTE}</p>
+
+					<p className={classes.note}>
+						<span>Note:</span> {NOTE}
+					</p>
 				</div>
 				<div className={classes.startContainer}>
 					<strong>Starts</strong>{" "}

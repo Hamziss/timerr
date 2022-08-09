@@ -40,4 +40,4 @@ export const quotes = [
 	},
 ]
 export const NOTE =
-	"Note: the time of a pomodoro session is related with the tree you gain the greater is the session time the greater is the tree you gain"
+	"the time of a pomodoro session is related with the type of tree and the amount of coins you gain the greater is the session time the greater is the tree you gain and the more coins you gain"
