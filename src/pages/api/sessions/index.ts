@@ -19,7 +19,7 @@ export default async function sessionHandler(
 	const session = await getSession(req, res, authOptions)
 
 	const token = req.headers.authorization
-	const { time, treeName } = req.body
+	const { time, name, image } = req.body
 
 	switch (method) {
 		case "PUT":
@@ -47,8 +47,9 @@ export default async function sessionHandler(
 							trees: [
 								{
 									size: 1,
-									name: treeName,
+									name,
 									createdAt: new Date(),
+									image,
 								},
 							],
 						},

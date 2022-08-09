@@ -1,3 +1,4 @@
+/* eslint-disable no-plusplus */
 import dayjs from "dayjs"
 import duration from "dayjs/plugin/duration"
 
@@ -33,15 +34,31 @@ export function updateFavicon(mode: string) {
 }
 export function choosetree(time: number) {
 	if (time > 30) {
-		return "japanese tree"
+		return {
+			name: "simple tree",
+			image:
+				"https://res.cloudinary.com/dyzwu7mr1/image/upload/v1660066232/tree_oatcex.png",
+		}
 	}
 	if (time > 24) {
-		return "european tree"
+		return {
+			name: "japense tree",
+			image:
+				"https://res.cloudinary.com/dyzwu7mr1/image/upload/v1660070255/dlpng_com_Pink_Tree_PNG_Clipart_Image___Gallery_Yopriceville_-_High-Quality_____3894827-pink-tree-png-clipart-image-gallery-yopriceville-high-quality-flower-tree-png-6360_5560_2_io7cc4.png",
+		}
 	}
 	if (time > 15) {
-		return "american tree"
+		return {
+			name: "Europeen tree",
+			image:
+				"https://res.cloudinary.com/dyzwu7mr1/image/upload/v1660070323/pngwing_5_mwozwl.png",
+		}
 	}
-	return "brazilian tree"
+	return {
+		name: "simple tree",
+		image:
+			"https://res.cloudinary.com/dyzwu7mr1/image/upload/v1660066232/tree_oatcex.png",
+	}
 }
 export function getRandomQuote(array: any[]) {
 	const randomIndex = Math.floor(Math.random() * array.length)
@@ -74,4 +91,25 @@ export function choosebgColorUpperDivCard(rarety: string) {
 		default:
 			return "black"
 	}
+}
+
+export function GetRowTree(trees: any[], rows: number) {
+	let row: any = []
+	// eslint-disable-next-line no-plusplus
+	const checkarrow = trees.length - rows
+	if (checkarrow < 8) {
+		let i = rows
+		while (i < trees.length) {
+			row = [...row, trees[i]]
+			i++
+		}
+	} else {
+		let i = rows
+		while (i < 8) {
+			row = [...row, trees[i]]
+			i++
+		}
+	}
+
+	return row
 }

@@ -22,7 +22,7 @@ const userSchema: Schema = new mongoose.Schema(
 		},
 		isAdmin: { type: Boolean, default: false },
 		sessions: { type: Number, default: 0 },
-		trees: [{ size: Number, name: String, createdAt: Date }],
+		trees: [{ size: Number, name: String, createdAt: Date, image: String }],
 		animals: [{ type: mongoose.Schema.Types.ObjectId, ref: "animal" }],
 		coins: { type: Number, default: 0 },
 		rank: { type: String, default: "bronze" },

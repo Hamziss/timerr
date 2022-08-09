@@ -39,3 +39,5 @@ export const quotes = [
 		author: "Socrates",
 	},
 ]
+export const NOTE =
+	"Note: the time of a pomodoro session is related with the tree you gain the greater is the session time the greater is the tree you gain"

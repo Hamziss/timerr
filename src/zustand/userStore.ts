@@ -47,7 +47,7 @@ const userStore = (set: any) => ({
 		}
 	},
 	updateUser: async (timepomodoro: number) => {
-		const treeName = choosetree(timepomodoro)
+		const { name, image } = choosetree(timepomodoro)
 		const headers = {
 			Authorization: token,
 		}
@@ -55,7 +55,8 @@ const userStore = (set: any) => ({
 			"/api/sessions",
 			{
 				time: timepomodoro,
-				treeName,
+				name,
+				image,
 			},
 			{ headers }
 		)

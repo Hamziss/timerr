@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles"
 import Switch, { SwitchProps } from "@mui/material/Switch"
 import TextField from "@mui/material/TextField"
 import React, { useEffect, useState } from "react"
+import { NOTE } from "../../../utils/constants"
 import useClickOutside from "../../hooks/useClickOutside"
 import useStore from "../../zustand/store"
 import classes from "./style.module.css"
@@ -122,6 +123,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							/>
 						</div>
 					</div>
+					<p className={classes.note}>{NOTE}</p>
 				</div>
 				<div className={classes.startContainer}>
 					<strong>Starts</strong>{" "}

@@ -55,7 +55,7 @@ export default function SignIn() {
 									/>
 								</label>
 
-								<div className="text-red-600 text-sm">
+								<div className="tem">
 									<ErrorMessage name="firstName" />
 								</div>
 							</div>
@@ -64,7 +64,7 @@ export default function SignIn() {
 									Last Name
 									<Field
 										name="lastName"
-										aria-label="enter your last Name"
+										aria-label="enName"
 										aria-required="true"
 										type="text"
 										className="w-f "
