@@ -1,0 +1,41 @@
+.tableWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-height: 600px;
+    border-radius: 8px;
+}
+
+.Header {
+    width: 100%;
+    background: #d8d8d8;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contentContainer {
+    overflow-y: scroll;
+    background: #f0f0f0;
+    border-radius: 0 0 8px 8px;
+}
+
+.contentContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-radius: 0 0 8px 8px;
+    padding: 5px 0;
+    background-color: #f0f0f0;
+}
+
+.row span,
+.Header span {
+    width: 10vw;
+    text-align: center;
+}

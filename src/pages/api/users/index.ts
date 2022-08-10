@@ -15,7 +15,7 @@ export default async function handlerUsers(
 	res: NextApiResponse
 ) {
 	const { method } = req
-	const { firstName, lastName, email, password, image } = req.body
+	const { firstName, lastName, email, password, image, username } = req.body
 
 	switch (method) {
 		case "GET":
@@ -24,6 +24,8 @@ export default async function handlerUsers(
 			// @access Public
 			try {
 				const users = await Users.find()
+					.select("-password -isAdmin")
+					.sort({ time: -1 })
 				return res.status(200).json({ users })
 			} catch (error) {
 				if (error instanceof Error) {
@@ -51,6 +53,7 @@ export default async function handlerUsers(
 				const newUser = new Users({
 					firstName,
 					email,
+					username,
 					password: passwordHash,
 					lastName,
 				})
@@ -77,6 +80,7 @@ export default async function handlerUsers(
 						password: passwordHash,
 						firstName,
 						lastName,
+						username,
 						image,
 					})
 				} else {
@@ -84,6 +88,7 @@ export default async function handlerUsers(
 						email,
 						firstName,
 						lastName,
+						username,
 						image,
 					})
 				}

@@ -110,6 +110,11 @@ export function GetRowTree(trees: any[], rows: number) {
 			i++
 		}
 	}
-
 	return row
+}
+
+export function FormatTimetoHours(time: number) {
+	const hours = Math.trunc(time / 60)
+	const minutes = time % 60
+	return `${hours}h ${minutes}min`
 }

@@ -9,6 +9,7 @@ import { toast } from "react-toastify"
 import * as Yup from "yup"
 import google from "../../../../public/images/google.png"
 import logo from "../../../../public/images/logo.png"
+import Signin from "../../../../public/images/Signin.png"
 import classes from "./style.module.css"
 
 export default function SignIn() {
@@ -106,13 +107,15 @@ export default function SignIn() {
 					)}
 				</Formik>
 				<p className={classes.newMember}>
-					Not a member ?
+					Not a member?
 					<Link href="/auth/signup">
 						<span className={classes.signup}> Sign up</span>
 					</Link>
 				</p>
 			</div>
-			<div className={classes.bgWave} />
+			<div className={classes.bgWave}>
+				<Image objectFit="contain" src={Signin} />
+			</div>
 		</div>
 	)
 }

@@ -1,0 +1,57 @@
+.firstThree {
+    display: flex;
+    align-items: flex-end;
+    gap: 40px;
+}
+
+.firstThree>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    font-family: "Poppins";
+    font-weight: 400;
+}
+
+.firstThree>div:first-child>div:last-child {
+    background-color: #dcf2ff;
+    padding: 20px 0 10px 0;
+}
+
+.firstThree>div:nth-child(2)>div:last-child {
+    background-color: #fff9c7;
+    padding: 40px 0 10px 0;
+}
+
+.firstThree>div:last-child>div:last-child {
+    background-color: #ffce8e;
+    padding: 10px 0 10px 0;
+}
+
+.firstThree>div>div:last-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    max-width: 400px;
+    cursor: pointer;
+    border-radius: 11px;
+    box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.25);
+}
+
+.name {
+    font-size: clamp(20px, 2vw, 40px);
+}
+
+.name2 {
+    font-size: clamp(18px, 1.5vw, 35px);
+}
+
+.name3 {
+    font-size: clamp(16px, 1vw, 30px);
+}
+
+.session {
+    font-size: clamp(12px, 0.8vw, 25px);
+}

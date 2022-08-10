@@ -18,22 +18,8 @@ export default async function userHandler(
 			// @access Public
 			// TODO: add sorting by session
 			try {
-				const user = await Users.findById(id)
-				if (user) {
-					delete user.password
-
-					return res.status(200).json({
-						_id: user._id,
-						firstname: user.firstName,
-						lastname: user.lastName,
-						email: user.email,
-						sessions: user.sessions,
-						coins: user.coins,
-						animals: user.animals,
-						trees: user.trees,
-						rank: user.rank,
-					})
-				}
+				const user = await Users.findById(id).select("-password -isAdmin")
+				if (user) return res.status(200).json({ user })
 
 				return res.status(404).json({ msg: "User not found" })
 			} catch (error) {

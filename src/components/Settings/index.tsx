@@ -23,6 +23,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 		autoStartPomodoros: settingsZustand.autoStartPomodoros,
 		autoStartShortBreaks: settingsZustand.autoStartShortBreaks,
 		autoStartLongBreaks: settingsZustand.autoStartLongBreaks,
+		activeAlarm: settingsZustand.activeAlarm,
 	})
 	const domNode = useClickOutside(() => {
 		setShowSettings(false)
@@ -45,6 +46,12 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 		checked: boolean
 	) => {
 		setSettings({ ...settings, autoStartLongBreaks: checked })
+	}
+	const handleActiveAlarmSound = (
+		event: React.SyntheticEvent,
+		checked: boolean
+	) => {
+		setSettings({ ...settings, activeAlarm: checked })
 	}
 	const handleChangeSettings = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = event.target
@@ -160,6 +167,16 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							checked={settingsZustand.autoStartLongBreaks}
 						/>
 					</div>
+				</div>
+				<div className={classes.alarmBox}>
+					Activate Alarm Sound ?
+					<FormControlLabel
+						control={<IOSSwitch sx={{ m: 1 }} />}
+						label=""
+						name="autoStartLongBreaks"
+						onChange={handleActiveAlarmSound}
+						checked={settingsZustand.activeAlarm}
+					/>
 				</div>
 				<div className={classes.DarkmodeContainer} />
 			</div>

@@ -2,7 +2,7 @@ export const SECOND_BUBBLE_TEXT =
 	"timerr is a customizable pomodoro timer. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. timerr is inspired by Pomodoro Technique which is a time management method developed by Francesco Cirillo."
 
 export const THIRD_BUBBLE_TEXT =
-	"Nice !! But How can we see our progress and achivements ?"
+	"Nice !! But How can we see our progress and achievements ?"
 export const FOURTH_BUBBLE_TEXT =
 	"for our users we created a system where you gain trees and coins every pomodoro round and collect them to see your progress and buy pets in the store to grow and pat them   "
 export const STORE_PARAGARAPH =
@@ -37,6 +37,32 @@ export const quotes = [
 		content:
 			"Smart people learn from everything and everyone, average people from their experiences, stupid people already have all the answers.",
 		author: "Socrates",
+	},
+	{
+		content: "Nothing is impossible. The word itself says 'I'm possible!'",
+		author: "Audrey Hepburn",
+	},
+	{
+		content:
+			"You define your own life. Don't let other people write your script.",
+		author: "Oprah Winfrey",
+	},
+	{
+		content: "Nobody built like you, you design yourself.",
+		author: "Jay Z",
+	},
+	{
+		content: "Anything I do, I want to do it well.",
+		author: "J cole",
+	},
+	{
+		content:
+			"Anything’s possible, you gotta dream like you never seen obstacles.",
+		author: "J cole",
+	},
+	{
+		content: "To appreciate the sun, you gotta know what rain is",
+		author: "J cole",
 	},
 ]
 export const NOTE =

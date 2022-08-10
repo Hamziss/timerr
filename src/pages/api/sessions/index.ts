@@ -42,7 +42,7 @@ export default async function sessionHandler(
 				const user = await Users.findOneAndUpdate(
 					{ email },
 					{
-						$inc: { sessions: 1, coins: time * 50 },
+						$inc: { sessions: 1, coins: time * 50, time },
 						$push: {
 							trees: [
 								{

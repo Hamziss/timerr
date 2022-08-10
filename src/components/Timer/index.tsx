@@ -11,6 +11,7 @@ import {
 	CircularProgressbarWithChildren,
 } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
+import { toast } from "react-toastify"
 import Bousole from "../../../public/images/Home/bousole.png"
 import Clock from "../../../public/images/Home/Clock.png"
 import { formatTime, updateFavicon, updateTitle } from "../../../utils/helpers"
@@ -32,29 +33,36 @@ const styleBtn = {
 const Timer = () => {
 	const { updateUser, timerState } = useStore()
 	const { settings } = timerState
-	const [mode, setmode] = useState("POMODORO")
 	const { status } = useSession()
+	// state
 	const [timer, setTimer] = useState(settings.timepomodoro)
-
+	const [mode, setmode] = useState("POMODORO")
 	const [showSettings, setShowSettings] = useState(false)
 	const [pomodoroCount, setPomodoroCount] = useState(0)
+
 	const { ticking, start, stop, reset, timeLeft, progress } = useCountdown({
 		minutes: timer,
 		onStart: () => {
 			updateFavicon(mode)
 		},
-		onStop: () => {
-			// if (mode === POMODORO) {
-			// 	tickingAudio.stop()
-			// }
-		},
+		onStop: () => {},
 		onComplete: () => {
+			if (settings.activeAlarm) {
+				const audio = new Audio()
+				audio.src = "/sounds/alarm.mp3"
+				audio.loop = false
+				audio.play()
+			}
 			setPomodoroCount(pomodoroCount + 1)
 			if (mode === "POMODORO" && pomodoroCount < settings.longbreakevery) {
 				setmode("SHORT_BREAK")
 				setTimer(settings.shortbreak)
+
 				if (status === "authenticated") {
 					updateUser(settings.timepomodoro)
+					toast.success(
+						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
+					)
 				}
 				reset()
 				if (settings.autoStartShortBreaks) {
@@ -68,6 +76,9 @@ const Timer = () => {
 				setTimer(settings.longbreak)
 				if (status === "authenticated") {
 					updateUser(settings.timepomodoro)
+					toast.success(
+						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
+					)
 				}
 				reset()
 				if (settings.autoStartLongBreaks) {
@@ -102,10 +113,10 @@ const Timer = () => {
 			setmode("POMODORO")
 			setTimer(settings.timepomodoro)
 		}
-
 		reset()
 		updateFavicon(mode)
 	}
+
 	const toggleTimer = useCallback(() => {
 		if (ticking) {
 			stop()
@@ -198,6 +209,7 @@ const Timer = () => {
 							style={{ fontSize: 12, marginTop: -5 }}
 						>
 							<span className={classes.time}>{formatTime(timeLeft)}</span>
+
 							<button type="submit" onClick={toggleTimer}>
 								{ticking ? (
 									<PauseIcon
@@ -213,6 +225,7 @@ const Timer = () => {
 									<PlayArrowIcon sx={styleBtn} />
 								)}
 							</button>
+							<span className={classes.rounds}>Round : {pomodoroCount}</span>
 							<button type="submit" onClick={reset}>
 								<RestartAltIcon sx={styleBtn} />
 							</button>

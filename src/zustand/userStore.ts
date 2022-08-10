@@ -27,6 +27,7 @@ const userStore = (set: any) => ({
 
 		try {
 			const res = await axios.get(`/api/users/${id}`)
+
 			set(
 				(state: any) => {
 					state.userState.loading = false

@@ -1,5 +1,19 @@
 :root {
     --main-orange: #ffb23a;
+    --deep-orange: #fea71f;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #dddddd;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--deep-orange);
+    transition: background-color 300ms ease-in;
 }
 
 html,

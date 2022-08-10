@@ -67,6 +67,14 @@
     font-family: "Poppins", sans-serif;
 }
 
+.alarmBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 13px 0;
+    color: #5c5c5c;
+}
+
 @media (max-width: 768px) {
     .windowWrapper {
         width: 90vw;

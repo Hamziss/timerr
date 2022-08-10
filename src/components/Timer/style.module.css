@@ -97,6 +97,12 @@
     right: 0;
 }
 
+.rounds {
+    font-size: clamp(14px, 0.8vw, 25px);
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
 @media (max-width: 758px) {
     .controlBtn {
         display: grid;

@@ -19,6 +19,7 @@ declare module "next-auth" {
 			animals: any[]
 			trees: any[]
 			rank: string
+			username: string
 			isAdmin: boolean
 			image: string
 		}

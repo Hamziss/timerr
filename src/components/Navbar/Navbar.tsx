@@ -1,13 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import Avatar from "@mui/material/Avatar"
+import LinearProgress from "@mui/material/LinearProgress"
 import { signOut, useSession } from "next-auth/react"
 import Image from "next/image"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import useClickOutside from "../../hooks/useClickOutside"
-
 import GardenIcon from "../../../public/images/garden.png"
 import Logo from "../../../public/images/logo.png"
 import Logout from "../../../public/images/logout.png"
@@ -15,6 +14,7 @@ import Monitor from "../../../public/images/monitor.png"
 import Polygon from "../../../public/images/Polygon.png"
 import Ranking from "../../../public/images/ranking.png"
 import UserIcon from "../../../public/images/user.png"
+import useClickOutside from "../../hooks/useClickOutside"
 import useStore from "../../zustand/store"
 import classes from "./style.module.css"
 
@@ -22,10 +22,12 @@ const Navbar = () => {
 	const { getUser, logout, userState } = useStore()
 	const { pathname } = useRouter()
 	const { data: session, status } = useSession()
+
 	const [isOpen, setIsOpen] = useState(false)
 	const domNode = useClickOutside(() => {
 		setIsOpen(false)
 	})
+
 	const DropdownItems = [
 		{
 			label: "Dashboard",
@@ -73,7 +75,9 @@ const Navbar = () => {
 	const pagesWithoutNavbar = ["/auth/signin", "/auth/signup"]
 
 	const renderNavbar = !pagesWithoutNavbar.includes(pathname)
-
+	if (status === "loading") {
+		return <LinearProgress color="success" />
+	}
 	return renderNavbar ? (
 		<nav className={classes.navBarContainer}>
 			<div className={classes.logoContainer}>
@@ -103,8 +107,8 @@ const Navbar = () => {
 
 			{status === "authenticated" ? (
 				<>
-					{" "}
 					<div className={classes.rightContainer}>
+						{session.user.username}
 						<Avatar
 							alt="Remy Sharp"
 							sx={{

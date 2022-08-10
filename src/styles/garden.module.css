@@ -18,10 +18,10 @@
 
 .terreContainer>div {
     position: relative;
-    height: 70px;
-    width: 60px;
+    height: 72px;
+    width: 100px;
     z-index: -1;
-    transform: translate(0, -51px);
+    transform: translate(0, -53px);
 }
 
 .titleContainer {
@@ -61,12 +61,14 @@
     .terreContainer {
         gap: 1vw;
     }
+    .terreContainer>div {
+        height: 53px;
+        width: 63px;
+        transform: translate(0, -45px);
+    }
 }
 
 @media screen and (max-width: 500px) {
-    .terreContainer>div {
-        transform: translate(0, -48px);
-    }
     .terreContainer {
         gap: 0;
     }
@@ -74,6 +76,7 @@
 
 @media screen and (max-width: 435px) {
     .terreContainer>div {
-        transform: translate(0, -42px);
+        transform: translate(0, -39px);
+        height: 39px;
     }
 }

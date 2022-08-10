@@ -7,6 +7,7 @@ const timerState = {
 		autoStartPomodoros: false,
 		autoStartShortBreaks: false,
 		autoStartLongBreaks: false,
+		activeAlarm: true,
 	},
 }
 
@@ -19,6 +20,7 @@ const timerStore = (set: any) => ({
 				state.timerState.settings.shortbreak = settings.shortbreak
 				state.timerState.settings.longbreak = settings.longbreak
 				state.timerState.settings.longbreakevery = settings.longbreakevery
+				state.timerState.settings.activeAlarm = settings.activeAlarm
 				state.timerState.settings.autoStartPomodoros =
 					settings.autoStartPomodoros
 				state.timerState.settings.autoStartShortBreaks =
