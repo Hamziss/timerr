@@ -33,7 +33,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image height={65} width={65} src={firstPlace} />
 			</div>
-			<Link href={`http://localhost:3000/users/${users[0]._id}`}>
+			<Link href={`/users/${users[0]._id}`}>
 				<div>
 					<div>
 						<Image height={60} width={60} src={users[0].image} />
@@ -49,7 +49,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image height={40} width={40} src={third} />
 			</div>
-			<Link href={`http://localhost:3000/users/${users[2]._id}`}>
+			<Link href={`/users/${users[2]._id}`}>
 				<div>
 					<div>
 						<Image height={60} width={60} src={users[2].image} />
