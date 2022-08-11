@@ -1,0 +1,46 @@
+.moneyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #9a9a9a;
+    margin: 10px 0;
+    padding: 20px 0;
+    border-top: 1px solid #9a9a9a;
+}
+
+.moneyContainer>div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+}
+
+.dialog>div:nth-child(3)>div {
+    width: clamp(200px, 80%, 600px);
+    overflow-y: initial;
+}
+
+.Container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.total {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.coinContainer {
+    position: absolute;
+    top: -3vw;
+    right: -4vw;
+    height: 8vw;
+    width: 10vw;
+}

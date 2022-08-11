@@ -15,7 +15,8 @@ export default async function handlerUsers(
 	res: NextApiResponse
 ) {
 	const { method } = req
-	const { firstName, lastName, email, password, image, username } = req.body
+	const { firstName, lastName, email, password, image, username, bio } =
+		req.body
 
 	switch (method) {
 		case "GET":
@@ -26,6 +27,7 @@ export default async function handlerUsers(
 				const users = await Users.find()
 					.select("-password -isAdmin")
 					.sort({ time: -1 })
+					.populate("animals")
 				return res.status(200).json({ users })
 			} catch (error) {
 				if (error instanceof Error) {
@@ -43,7 +45,7 @@ export default async function handlerUsers(
 			// @route POST /api/users
 			// @access Public
 			try {
-				const user = await Users.findOne({ email })
+				const user = await Users.findOne({ email }).populate("animals")
 
 				if (user)
 					return res.status(400).json({ error: "This user already exists." })
@@ -65,34 +67,44 @@ export default async function handlerUsers(
 		case "PUT":
 			// @desc update user
 			// @route PUT /api/users
-			// @access Public
+			// @access Private
 			const session = (await getSession(req, res, authOptions)) as Session
-			const { email: emailUser } = session.user
 			if (!session)
 				return res.status(401).json({ error: "You must be logged in." })
+			const { email: emailUser } = session.user
+			// TODO: add update password
 			try {
-				const user = await Users.findOne({ emailUser })
+				const user = await Users.findOneAndUpdate(
+					{ email: emailUser },
+					{
+						firstName,
+						lastName,
+						image,
+						username,
+						bio,
+					},
+					{ new: true }
+				)
 				if (!user) return res.status(404).json({ error: "User not found." })
-				if (password) {
-					const passwordHash = await bcrypt.hash(password, 12)
-					await user.update({
-						email,
-						password: passwordHash,
-						firstName,
-						lastName,
-						username,
-						image,
-					})
-				} else {
-					await user.update({
-						email,
-						firstName,
-						lastName,
-						username,
-						image,
-					})
-				}
-				return res.status(200).json({ msg: "User updated successfully." })
+				// if (password) {
+				// 	const passwordHash = await bcrypt.hash(password, 12)
+				// 	await user.update({
+				// 		password: passwordHash,
+				// 		firstName,
+				// 		lastName,
+				// 		username,
+				// 		image,
+				// 	})
+				// } else {
+				// 	await user.update({
+				// 		firstName,
+				// 		lastName,
+				// 		username,
+				// 		image,
+				// 		bio,
+				// 	})
+				// }
+				return res.status(200).json({ user })
 			} catch (error) {
 				if (error instanceof Error) {
 					return res.status(400).json({

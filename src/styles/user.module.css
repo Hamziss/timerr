@@ -12,7 +12,6 @@
     max-width: 1400px;
     margin-top: 20px;
     border-radius: 10px;
-    background-color: aqua;
     box-shadow: 0px 0px 88px -31px rgba(0, 0, 0, 0.25);
 }
 
@@ -29,6 +28,10 @@
     position: relative;
 }
 
+.bgContainer>span {
+    border-radius: 10px 10px 0 0;
+}
+
 .dataContainer {
     display: flex;
     flex-direction: column;
@@ -40,7 +43,7 @@
     box-shadow: 0px 14px 48px rgba(0, 0, 0, 0.25);
     position: relative;
     justify-content: center;
-    padding-left: 3vw;
+    padding-left: 2vw;
 }
 
 .profileImage {
@@ -55,6 +58,9 @@
 
 .username {
     font-weight: 500;
+    font-weight: 500;
+    font-size: clamp(18px, 1.7vw, 25px);
+    margin-top: 20px;
 }
 
 .lowerContainer {
@@ -76,6 +82,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 13px;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .editBtn {
@@ -94,4 +102,9 @@
     right: 8px;
     top: 10px;
     filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.32));
+}
+
+.dataContainer>span:last-child {
+    opacity: 0.7;
+    font-size: clamp(12px, 1.2vw, 17px);
 }

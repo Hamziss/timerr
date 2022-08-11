@@ -31,7 +31,7 @@ const styleBtn = {
 }
 
 const Timer = () => {
-	const { updateUser, timerState } = useStore()
+	const { updateUserSession, timerState } = useStore()
 	const { settings } = timerState
 	const { status } = useSession()
 	// state
@@ -59,7 +59,7 @@ const Timer = () => {
 				setTimer(settings.shortbreak)
 
 				if (status === "authenticated") {
-					updateUser(settings.timepomodoro)
+					updateUserSession(settings.timepomodoro)
 					toast.success(
 						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
 					)
@@ -75,7 +75,7 @@ const Timer = () => {
 				setmode("LONG_BREAK")
 				setTimer(settings.longbreak)
 				if (status === "authenticated") {
-					updateUser(settings.timepomodoro)
+					updateUserSession(settings.timepomodoro)
 					toast.success(
 						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
 					)

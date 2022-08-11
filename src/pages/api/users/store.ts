@@ -16,15 +16,16 @@ export default async function handler(
 	res: NextApiResponse
 ) {
 	const session = await getSession(req, res, authOptions)
-	const email = session?.user.email
+
 	const { method } = req
 	const { animal } = req.body as IBody
 
 	if (!session) return res.status(401).json({ error: "You have to login" })
+	const { email } = session.user
 	switch (method) {
-		case "PUT":
+		case "POST":
 			// @desc buy animal
-			// @route PUT /api/users/store
+			// @route POST /api/users/store
 			// @access Public
 
 			try {
@@ -33,11 +34,12 @@ export default async function handler(
 				if (user) {
 					if (user.coins > animal.price) {
 						user.animals.push(req.body.animal)
+						user.coins -= animal.price
 						await user.save()
-						return res.status(200).json({ user, msg: "Animal bought" })
+						return res.status(200).json({ user, message: "Animal bought" })
 					}
 					return res
-						.status(401)
+						.status(400)
 						.json({ message: "You don't have enough money" })
 				}
 			} catch (error) {
@@ -53,7 +55,7 @@ export default async function handler(
 				}
 			}
 			break
-		case "POST":
+		case "PUT":
 			break
 		case "DELETE":
 			// @desc sell animal

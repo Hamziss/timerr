@@ -120,3 +120,35 @@
 .dropdown>button:last-child {
     border-top: 1px solid #d9d9d9;
 }
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 468px) {
+    .midContainer {
+        position: fixed;
+        height: 39px;
+        align-items: center;
+        bottom: 0;
+        background: rgb(194, 194, 194);
+        filter: drop-shadow(0px -10px 32px rgba(0, 0, 0, 0.25));
+        width: 100%;
+        justify-content: space-around;
+        z-index: 10;
+    }
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+        height: 20px;
+        width: 20px;
+    }
+    .navBarContainer {
+        padding: 0 10px;
+    }
+    .rightContainer {
+        gap: 9px;
+    }
+}

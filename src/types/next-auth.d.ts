@@ -20,6 +20,7 @@ declare module "next-auth" {
 			trees: any[]
 			rank: string
 			username: string
+			bio: string
 			isAdmin: boolean
 			image: string
 		}

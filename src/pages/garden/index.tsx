@@ -19,6 +19,7 @@ const Garden = () => {
 
 	while (rowIndex <= trees?.length) {
 		const newRow = GetRowTree(trees, rowIndex)
+
 		devidedTrees.push(newRow)
 		rowIndex += 8
 	}

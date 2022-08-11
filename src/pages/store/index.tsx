@@ -3,8 +3,10 @@
 import FormControl from "@mui/material/FormControl"
 import MenuItem from "@mui/material/MenuItem"
 import Select, { SelectChangeEvent } from "@mui/material/Select"
+import { useSession } from "next-auth/react"
 import Image from "next/image"
 import { useState } from "react"
+import { toast } from "react-toastify"
 import { FreeMode } from "swiper"
 import "swiper/css"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -14,6 +16,7 @@ import bimbo from "../../../public/images/Store/bimbo.png"
 import girafe from "../../../public/images/Store/girafe.png"
 import store from "../../../public/images/Store/store.png"
 import AnimalCard from "../../components/AnimalCard"
+import ConfirmBuy from "../../components/ConfirmBuy"
 import Footer from "../../components/Footer"
 import getData from "../../services/fetchData/getData"
 import classes from "../../styles/store.module.css"
@@ -32,9 +35,32 @@ const Store = ({
 	rareAnimals,
 }: Props) => {
 	const [ShowAnimals, setShowAnimals] = useState("All")
+	const { status } = useSession()
+	const [Open, setOpen] = useState(false)
+	const [selectedAnimal, setSelectedAnimal] = useState<IAnimal>({
+		_id: 0,
+		name: "",
+		category: "",
+		price: 0,
+		image: "",
+		feeling: "",
+		ownedSince: new Date(),
+		rarety: "",
+	})
 
+	const handleClose = () => {
+		setOpen(false)
+	}
 	const handleChange = (event: SelectChangeEvent) => {
 		setShowAnimals(event.target.value)
+	}
+	const handleBuy = (animal: IAnimal) => {
+		if (status === "authenticated") {
+			setSelectedAnimal(animal)
+			setOpen(true)
+		} else {
+			toast.error("You need to be logged in to buy an animal")
+		}
 	}
 	return (
 		<>
@@ -50,6 +76,11 @@ const Store = ({
 						<h1>Store</h1>
 						<Image priority src={store} />
 					</div>
+					<ConfirmBuy
+						animal={selectedAnimal}
+						open={Open}
+						handleClose={handleClose}
+					/>
 					<div className={classes.heroContainer}>
 						<div className={classes.textSide}>
 							<span>New Release ! </span>
@@ -119,7 +150,11 @@ const Store = ({
 							>
 								<div className={classes.whiteEffect} />
 								{epiqueAnimals.map(animal => (
-									<SwiperSlide style={{ minWidth: "200px" }} key={animal._id}>
+									<SwiperSlide
+										onClick={() => handleBuy(animal)}
+										style={{ minWidth: "200px" }}
+										key={animal._id}
+									>
 										<AnimalCard animal={animal} />
 									</SwiperSlide>
 								))}
@@ -156,7 +191,10 @@ const Store = ({
 							>
 								<div className={classes.whiteEffect} />
 								{legendaryAnimals.map(animal => (
-									<SwiperSlide key={animal._id}>
+									<SwiperSlide
+										onClick={() => handleBuy(animal)}
+										key={animal._id}
+									>
 										<AnimalCard animal={animal} />
 									</SwiperSlide>
 								))}
@@ -193,7 +231,10 @@ const Store = ({
 							>
 								<div className={classes.whiteEffect} />
 								{rareAnimals.map(animal => (
-									<SwiperSlide key={animal._id}>
+									<SwiperSlide
+										onClick={() => handleBuy(animal)}
+										key={animal._id}
+									>
 										<AnimalCard animal={animal} />
 									</SwiperSlide>
 								))}
@@ -208,7 +249,6 @@ const Store = ({
 }
 
 export default Store
-
 export const getServerSideProps = async () => {
 	const res = await getData("animals")
 
