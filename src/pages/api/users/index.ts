@@ -27,7 +27,7 @@ export default async function handlerUsers(
 				const users = await Users.find()
 					.select("-password -isAdmin")
 					.sort({ time: -1 })
-					.populate("animals")
+
 				return res.status(200).json({ users })
 			} catch (error) {
 				if (error instanceof Error) {
@@ -45,7 +45,7 @@ export default async function handlerUsers(
 			// @route POST /api/users
 			// @access Public
 			try {
-				const user = await Users.findOne({ email }).populate("animals")
+				const user = await Users.findOne({ email })
 
 				if (user)
 					return res.status(400).json({ error: "This user already exists." })

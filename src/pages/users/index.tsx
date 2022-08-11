@@ -45,6 +45,7 @@ export default Users
 
 export async function getServerSideProps() {
 	const res = await getData("users")
+	console.log(res)
 	const { users } = res
 
 	return {
