@@ -7,7 +7,6 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
-import google from "../../../../public/images/google.png"
 import logo from "../../../../public/images/logo.png"
 import Signin from "../../../../public/images/Signin.png"
 import classes from "./style.module.css"
@@ -56,7 +55,7 @@ export default function SignIn() {
 					{formik => (
 						<form onSubmit={formik.handleSubmit}>
 							<div className="bg-white">
-								<button className={classes.google} type="submit">
+								{/* <button className={classes.google} type="submit">
 									<Image height={25} width={25} src={google} />
 									Sign in with Google
 								</button>
@@ -65,7 +64,7 @@ export default function SignIn() {
 									<div />
 									or
 									<div />
-								</div>
+								</div> */}
 								<div className={classes.boxInput}>
 									<label htmlFor="email" className="upold">
 										Email
