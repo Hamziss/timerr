@@ -23,17 +23,11 @@ import classes from "../../styles/store.module.css"
 import { IAnimal } from "../../types/animal"
 
 interface Props {
-	animals: IAnimal[]
 	legendaryAnimals: IAnimal[]
 	rareAnimals: IAnimal[]
 	epiqueAnimals: IAnimal[]
 }
-const Store = ({
-	animals,
-	epiqueAnimals,
-	legendaryAnimals,
-	rareAnimals,
-}: Props) => {
+const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 	const [ShowAnimals, setShowAnimals] = useState("All")
 	const { status } = useSession()
 	const [Open, setOpen] = useState(false)
@@ -265,7 +259,6 @@ export const getServerSideProps = async () => {
 
 	return {
 		props: {
-			animals,
 			legendaryAnimals,
 			epiqueAnimals,
 			rareAnimals,
