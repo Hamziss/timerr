@@ -84,6 +84,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { id } = context.params as IParams
 
 	const res: any = await getData(`users/${id}`)
+	console.log(res)
 	const { user } = res
 
 	return {
