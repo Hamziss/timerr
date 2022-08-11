@@ -7,7 +7,9 @@ const Footer = () => (
 		<div className={classes.upperDiv}>
 			<span>Want to Contribute in timerr ?</span>
 			<button type="submit">
-				<span> Contact us</span>
+				<span>
+					<a href="mailto:hamzachebbah9999@gmail.com"> Contact us </a>
+				</span>
 				<Image height={20} width={20} src={contactUs} />
 			</button>
 		</div>

@@ -8,11 +8,11 @@ export const FOURTH_BUBBLE_TEXT =
 export const STORE_PARAGARAPH =
 	"the store is a place where you can buy animals with the coins you gain in a pomodoro session . you also can interact with animals you own ."
 export const ABOUT_CONCEPT =
-	"for our users we created a system where you gain trees and coins every pomodoro round and collect them to see your progress and buy pets in the store to grow and pat them"
+	"timerr is an web app that help you be productive and focus on any task you are working on, it can be anything , for example studying, writing, or coding. timerr is inspired by Pomodoro Technique which is a time management method developed by Francesco Cirillo."
 export const ABOUT_STORE =
-	"The store is a place where you can buy animals and collect them in your profile , we will also add features in the future where you can interact with them by feeding them and manage there feeling  "
+	"The store is a place where our users can buy animals and collect them in your profile , we will also add features in the future where you can interact with them by feeding them and manage there feeling  "
 export const ABOUT_GARDEN =
-	"The garden is a place where you store all the trees you gain in pomodoros session. The type of trees can be different depending on the pomodoro time you do the greater is the time the greater will be the trees"
+	"The garden is a place where users store all the trees you gain in pomodoros session. The type of trees can be different depending on the pomodoro time you do the greater is the time the greater will be the trees"
 export const ABOUT_RANKING =
 	"ranking is a place where you can see the world most active users of timerr, the three first people will get secret rewards ..shht."
 export const quotes = [

@@ -31,7 +31,12 @@ const AboutPage = () => (
 					<p>{ABOUT_CONCEPT}</p>
 				</div>
 				<div className={classes.imgSide}>
-					<Image objectFit="contain" layout="fill" src={concept} />
+					<Image
+						placeholder="blur"
+						objectFit="contain"
+						layout="fill"
+						src={concept}
+					/>
 				</div>
 			</section>
 			<section className={classes.Store}>
@@ -39,7 +44,12 @@ const AboutPage = () => (
 					<Image layout="responsive" src={circle2} />
 				</div>
 				<div className={classes.imgSide}>
-					<Image objectFit="contain" layout="fill" src={store} />
+					<Image
+						placeholder="blur"
+						objectFit="contain"
+						layout="fill"
+						src={store}
+					/>
 				</div>
 
 				<div className={classes.textSide}>
@@ -56,12 +66,22 @@ const AboutPage = () => (
 					<p>{ABOUT_GARDEN}</p>
 				</div>
 				<div className={classes.imgSide}>
-					<Image objectFit="contain" layout="fill" src={garden} />
+					<Image
+						placeholder="blur"
+						objectFit="contain"
+						layout="fill"
+						src={garden}
+					/>
 				</div>
 			</section>{" "}
 			<section className={classes.Ranking}>
 				<div className={classes.imgSide}>
-					<Image objectFit="contain" layout="fill" src={ranking} />
+					<Image
+						placeholder="blur"
+						objectFit="contain"
+						layout="fill"
+						src={ranking}
+					/>
 				</div>
 				<div className={classes.textSide}>
 					<h2>Ranking</h2>
