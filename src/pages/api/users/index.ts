@@ -8,8 +8,6 @@ import Users from "../../../../models/user"
 import connectDB from "../../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
-connectDB()
-
 export default async function handlerUsers(
 	req: NextApiRequest,
 	res: NextApiResponse
@@ -17,7 +15,7 @@ export default async function handlerUsers(
 	const { method } = req
 	const { firstName, lastName, email, password, image, username, bio } =
 		req.body
-
+	connectDB()
 	switch (method) {
 		case "GET":
 			// @desc get all users

@@ -5,8 +5,6 @@ import Animal from "../../../../models/animal"
 import connectDB from "../../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
-connectDB()
-
 export default async function animalshandler(
 	req: NextApiRequest,
 	res: NextApiResponse
@@ -14,7 +12,7 @@ export default async function animalshandler(
 	const { method } = req
 	const { name, category, price, feeling, ownedSince, rarety, image } = req.body
 	const session = await getSession(req, res, authOptions)
-
+	connectDB()
 	switch (method) {
 		case "GET":
 			// @desc get all animals

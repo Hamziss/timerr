@@ -6,8 +6,6 @@ import { IAnimal } from "../../../types/animal"
 
 import { authOptions } from "../auth/[...nextauth]"
 
-connectDB()
-
 interface IBody {
 	animal: IAnimal
 }
@@ -15,6 +13,7 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
+	connectDB()
 	const session = await getSession(req, res, authOptions)
 
 	const { method } = req

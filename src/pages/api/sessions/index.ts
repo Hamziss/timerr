@@ -6,7 +6,6 @@ import Users from "../../../../models/user"
 import connectDB from "../../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
-connectDB()
 interface IPayloadJWT {
 	hasAccess: boolean
 }
@@ -15,7 +14,7 @@ export default async function sessionHandler(
 	res: NextApiResponse
 ) {
 	const { method } = req
-
+	connectDB()
 	const session = await getSession(req, res, authOptions)
 
 	const token = req.headers.authorization
