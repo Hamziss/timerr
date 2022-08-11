@@ -23,6 +23,7 @@ import classes from "./style.module.css"
 
 const Navbar = () => {
 	const { getUser, logout, userState } = useStore()
+	const Router = useRouter()
 	const { pathname } = useRouter()
 	const { data: session, status } = useSession()
 
@@ -58,8 +59,9 @@ const Navbar = () => {
 				// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
 				<div
 					onClick={() => {
-						signOut()
 						logout()
+						signOut({ callbackUrl: "/" })
+						Router.push("/")
 					}}
 				>
 					logout
