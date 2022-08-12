@@ -59,7 +59,7 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 		setIsloading(true)
 		event.preventDefault()
 		const form = event.currentTarget
-		const fileInput = Array.from(form.elements).find(
+		const fileInput = Array.from(form?.elements).find(
 			({ name }) => name === "file"
 		)
 
