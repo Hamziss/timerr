@@ -37,7 +37,22 @@ const userSchema: Schema = new mongoose.Schema(
 		isAdmin: { type: Boolean, default: false },
 		sessions: { type: Number, default: 0 },
 		trees: [{ size: Number, name: String, createdAt: Date, image: String }],
-		animals: [{ type: mongoose.Types.ObjectId, ref: "animal" }],
+		animals: [
+			{
+				name: {
+					type: String,
+					required: true,
+					unique: true,
+				},
+				category: {
+					type: String,
+				},
+				price: { type: Number, required: true },
+				feeling: { type: String },
+				rarety: { type: String },
+				image: { type: String },
+			},
+		],
 		coins: { type: Number, default: 0 },
 		rank: { type: String, default: "bronze" },
 		image: {

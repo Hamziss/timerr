@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { FormatTimetoHours } from "../../../utils/helpers"
 import { IUser } from "../../types/user"
 import classes from "./style.module.css"
@@ -22,7 +23,9 @@ const RankingTable = ({ users }: Props) => (
 				return (
 					<div key={user._id} className={classes.row}>
 						<span>{index + 1}</span>
-						<span>{user.username}</span>
+						<Link href={`/users/${user._id}`}>
+							<span style={{ cursor: "pointer" }}>{user.username}</span>
+						</Link>
 						<span>{FormatTimetoHours(user.time)}</span>
 						<span>{user.sessions}</span>
 					</div>

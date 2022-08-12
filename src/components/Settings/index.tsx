@@ -1,4 +1,7 @@
+import VolumeDown from "@mui/icons-material/VolumeDown"
+import VolumeUp from "@mui/icons-material/VolumeUp"
 import FormControlLabel from "@mui/material/FormControlLabel"
+import Slider from "@mui/material/Slider"
 import { styled } from "@mui/material/styles"
 import Switch, { SwitchProps } from "@mui/material/Switch"
 import TextField from "@mui/material/TextField"
@@ -24,10 +27,19 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 		autoStartShortBreaks: settingsZustand.autoStartShortBreaks,
 		autoStartLongBreaks: settingsZustand.autoStartLongBreaks,
 		activeAlarm: settingsZustand.activeAlarm,
+		alarmVolume: settingsZustand.alarmVolume,
 	})
 	const domNode = useClickOutside(() => {
 		setShowSettings(false)
 	})
+
+	const playDemo = () => {
+		const audio = new Audio()
+		audio.src = "/sounds/alarm.mp3"
+		audio.loop = false
+		audio.volume = settings.alarmVolume / 100
+		audio.play()
+	}
 
 	const handleAutoShortBreaks = (
 		event: React.SyntheticEvent,
@@ -53,11 +65,12 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 	) => {
 		setSettings({ ...settings, activeAlarm: checked })
 	}
-	const handleChangeSettings = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChangeSettings = (event: any) => {
 		const { name, value } = event.target
 		const convertedValue = Number(value)
 		setSettings({ ...settings, [name]: convertedValue })
 	}
+
 	useEffect(() => {
 		updateSettings(settings)
 	}, [settings, updateSettings])
@@ -136,7 +149,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 					</p>
 				</div>
 				<div className={classes.startContainer}>
-					<strong>Starts</strong>{" "}
+					<strong>Starts</strong>
 					<div>
 						Auto Start Pomodoros ?
 						<FormControlLabel
@@ -168,6 +181,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 						/>
 					</div>
 				</div>
+				<strong className={classes.alarmStrong}>Alarm</strong>
 				<div className={classes.alarmBox}>
 					Activate Alarm Sound ?
 					<FormControlLabel
@@ -178,6 +192,23 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 						checked={settingsZustand.activeAlarm}
 					/>
 				</div>
+				<div className={classes.alarmBox}>
+					<span>Alarm Sound</span>
+					<button type="submit" onClick={playDemo}>
+						Demo
+					</button>
+					<div className={classes.volumeContainer}>
+						<VolumeDown />
+						<Slider
+							aria-label="Volume"
+							name="alarmVolume"
+							value={settingsZustand.alarmVolume}
+							onChange={handleChangeSettings}
+						/>
+						<VolumeUp />
+					</div>
+				</div>
+
 				<div className={classes.DarkmodeContainer} />
 			</div>
 		</>

@@ -143,7 +143,7 @@ const Navbar = () => {
 								cursor: "pointer",
 								marginRight: "20px",
 							}}
-							src={session.user.image}
+							src={userState.datauser.image}
 							onClick={() => setIsOpen(!isOpen)}
 						/>
 					</div>

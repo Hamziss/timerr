@@ -42,7 +42,7 @@ const UserPage = ({ user }: Props) => {
 					</div>
 					<div className={classes.dataContainer}>
 						<div className={classes.profileImage}>
-							<Image layout="fill" src={user.image} />
+							<Image objectFit="contain" layout="fill" src={user.image} />
 						</div>
 						{data?.user?._id === user._id && (
 							<>
@@ -84,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 	const { id } = context.params as IParams
 
 	const res: any = await getData(`users/${id}`)
-	console.log(res)
+
 	const { user } = res
 
 	return {

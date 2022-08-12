@@ -6,6 +6,7 @@ import { IAnimal } from "../../../types/animal"
 
 import { authOptions } from "../auth/[...nextauth]"
 
+connectDB()
 interface IBody {
 	animal: IAnimal
 }
@@ -13,9 +14,8 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	connectDB()
 	const session = await getSession(req, res, authOptions)
-
+	await connectDB()
 	const { method } = req
 	const { animal } = req.body as IBody
 
@@ -34,6 +34,7 @@ export default async function handler(
 					if (user.coins > animal.price) {
 						user.animals.push(req.body.animal)
 						user.coins -= animal.price
+						user.animals.sort((a, b) => b.price - a.price)
 						await user.save()
 						return res.status(200).json({ user, message: "Animal bought" })
 					}

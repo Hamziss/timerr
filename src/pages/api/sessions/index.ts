@@ -14,7 +14,7 @@ export default async function sessionHandler(
 	res: NextApiResponse
 ) {
 	const { method } = req
-	connectDB()
+	await connectDB()
 	const session = await getSession(req, res, authOptions)
 
 	const token = req.headers.authorization

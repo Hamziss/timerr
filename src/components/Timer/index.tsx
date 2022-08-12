@@ -51,6 +51,7 @@ const Timer = () => {
 				const audio = new Audio()
 				audio.src = "/sounds/alarm.mp3"
 				audio.loop = false
+				audio.volume = settings.alarmVolume / 100
 				audio.play()
 			}
 			setPomodoroCount(pomodoroCount + 1)

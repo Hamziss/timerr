@@ -8,7 +8,7 @@ export default async function userHandler(
 ) {
 	const { query, method } = req
 	const { id } = query
-	connectDB()
+	await connectDB()
 	switch (method) {
 		case "GET":
 			// @desc get user by id
@@ -16,9 +16,8 @@ export default async function userHandler(
 			// @access Public
 			// TODO: add sorting by session
 			try {
-				const user = await Users.findById(id)
-					.select("-password -isAdmin")
-					.populate({ path: "animals" })
+				const user = await Users.findById(id).select("-password -isAdmin")
+
 				if (user) return res.status(200).json({ user })
 
 				return res.status(404).json({ msg: "User not found" })

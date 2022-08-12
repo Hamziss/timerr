@@ -15,7 +15,7 @@ export default async function handlerUsers(
 	const { method } = req
 	const { firstName, lastName, email, password, image, username, bio } =
 		req.body
-	connectDB()
+	await connectDB()
 	switch (method) {
 		case "GET":
 			// @desc get all users

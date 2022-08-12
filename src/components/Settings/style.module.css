@@ -33,16 +33,17 @@
 
 .sessionContainer,
 .startContainer {
-    padding: 28px 0;
+    padding: 20px 0;
     border-bottom: 2px solid #d9d9d9;
 }
 
 .sessionContainer strong,
-.startContainer strong {
+.startContainer strong,
+.alarmStrong {
     font-size: clamp(14px, 1.8vw, 25px);
     font-family: "Poppins";
     font-weight: 500;
-    padding: 1.5vw 0;
+    padding: 1vw 0;
 }
 
 .sessionContainer>div {
@@ -71,8 +72,32 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 13px 0;
+    margin: 5px 0;
     color: #5c5c5c;
+}
+
+.volumeContainer {
+    width: clamp(161px, 26vw, 198px);
+    display: flex;
+    gap: 11px;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.demo {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+}
+
+.alarmBox>button {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: 5px;
+    color: #fff;
+    cursor: pointer;
+    background: var(--main-orange);
+    border-radius: 9px;
 }
 
 @media (max-width: 768px) {
