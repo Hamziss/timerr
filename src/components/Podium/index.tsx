@@ -17,7 +17,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image height={50} width={50} src={secondPlace} />
 			</div>
-			<Link href={`http://localhost:3000/users/${users[1]._id}`}>
+			<Link href={`/users/${users[1]._id}`}>
 				<div>
 					<div>
 						<Image height={60} width={60} src={users[1].image} />
