@@ -24,7 +24,7 @@
     left: 50%;
     transform: translate(-50%, 0%);
     align-items: center;
-    gap: min(6vw, 80px);
+    gap: min(3vw, 80px);
 }
 
 .rightContainer {
@@ -128,6 +128,16 @@
 @media (max-width: 768px) {
     .username {
         display: none;
+    }
+    .signin,
+    .signup {
+        min-width: 75px;
+    }
+    .navBarContainer {
+        padding: 0 10px;
+    }
+    .rightContainer {
+        gap: 6px;
     }
 }
 
