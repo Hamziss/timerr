@@ -71,7 +71,7 @@ export default function SignIn() {
 							firstName: values.firstName,
 							username: values.username,
 						}
-						const res = await postData("/users", userData)
+						const res = await postData("users", userData)
 
 						if (res?.error) {
 							toast.error(res.error)

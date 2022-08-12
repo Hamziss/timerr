@@ -33,7 +33,7 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 	const { updateProfile } = useStore()
 	const [imageSrc, setImageSrc] = useState(user.image)
 	const [isloading, setIsloading] = useState(false)
-	const [uploadData, setUploadData] = useState()
+
 	const [userInfo, setUserInfo] = React.useState({
 		firstName: user.firstName,
 		lastName: user.lastName,
@@ -49,7 +49,6 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 		// eslint-disable-next-line func-names
 		reader.onload = function (onLoadEvent) {
 			setImageSrc(onLoadEvent.target?.result as string)
-			setUploadData(undefined)
 		}
 
 		reader.readAsDataURL(changeEvent.target.files[0])

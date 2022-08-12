@@ -1,6 +1,6 @@
 export const postData = async(url, post, token) => {
 
-    const res = await fetch(`http://localhost:3000/api/${url}`, {
+    const res = await fetch(`https://timerr-dev.vercel.app/api/${url}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
