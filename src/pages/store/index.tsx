@@ -12,7 +12,6 @@ import "swiper/css"
 import { Swiper, SwiperSlide } from "swiper/react"
 import circle from "../../../public/images/Home/circle.png"
 import rightCircle from "../../../public/images/Home/circleRight.png"
-import bimbo from "../../../public/images/Store/bimbo.png"
 import girafe from "../../../public/images/Store/girafe.png"
 import store from "../../../public/images/Store/store.png"
 import AnimalCard from "../../components/AnimalCard"
@@ -82,10 +81,20 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 								Bimbo The New Creature <br />
 								Is Out
 							</strong>
-							<button type="submit">Purchase</button>
+							<button
+								onClick={() => handleBuy(legendaryAnimals[1])}
+								type="submit"
+							>
+								Purchase
+							</button>
 						</div>
 						<div className={classes.ImageContainer}>
-							<Image placeholder="blur" src={bimbo} />
+							<Image
+								width={280}
+								objectFit="contain"
+								height={280}
+								src={legendaryAnimals[1].image}
+							/>
 						</div>
 						<div className={classes.girafeContainer}>
 							<Image placeholder="blur" priority src={girafe} />
