@@ -125,6 +125,12 @@
     display: none;
 }
 
+@media (max-width: 768px) {
+    .username {
+        display: none;
+    }
+}
+
 @media (max-width: 468px) {
     .midContainer {
         position: fixed;

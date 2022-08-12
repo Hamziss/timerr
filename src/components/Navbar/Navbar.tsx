@@ -134,7 +134,9 @@ const Navbar = () => {
 			{status === "authenticated" ? (
 				<>
 					<div className={classes.rightContainer}>
-						{userState.datauser.username}
+						<span className={classes.username}>
+							{userState.datauser.username}
+						</span>
 						<Avatar
 							alt="Remy Sharp"
 							sx={{
