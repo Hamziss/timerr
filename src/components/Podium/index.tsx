@@ -41,7 +41,12 @@ const Podium = ({ users }: Props) => (
 			<Link href={`/users/${users[0]._id}`}>
 				<div>
 					<div className={classes.imgContainer}>
-						<Image height={60} width={60} src={users[0].image} />
+						<Image
+							objectFit="contain"
+							height={60}
+							width={60}
+							src={users[0].image}
+						/>
 					</div>
 					<span className={classes.name}>{users[0].username}</span>
 					<span className={classes.session}>
@@ -57,7 +62,12 @@ const Podium = ({ users }: Props) => (
 			<Link href={`/users/${users[2]._id}`}>
 				<div>
 					<div className={classes.imgContainer}>
-						<Image height={60} width={60} src={users[2].image} />
+						<Image
+							objectFit="contain"
+							height={60}
+							width={60}
+							src={users[2].image}
+						/>
 					</div>
 					<span className={classes.name3}>{users[2].username}</span>
 					<span className={classes.session}>

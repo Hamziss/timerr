@@ -69,8 +69,8 @@ const userStore = (set: any) => ({
 			state.userState.datauser = user
 		})
 	},
-	updateProfile: async (user: any) => {
-		const { firstName, lastName, image, username, bio } = user
+	updateProfile: async (user: any, image: any) => {
+		const { firstName, lastName, username, bio } = user
 		const res = await axios.put("/api/users", {
 			firstName,
 			lastName,

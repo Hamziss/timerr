@@ -31,13 +31,13 @@ const Transition = React.forwardRef(
 
 export default function EditProfile({ open, handleClose, user }: Props) {
 	const { updateProfile } = useStore()
+	const [imageSrc, setImageSrc] = useState(user.image)
 	const [isloading, setIsloading] = useState(false)
 	const [uploadData, setUploadData] = useState()
 	const [userInfo, setUserInfo] = React.useState({
 		firstName: user.firstName,
 		lastName: user.lastName,
 		username: user.username,
-		image: user.image,
 		bio: user.bio,
 	})
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +48,7 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 
 		// eslint-disable-next-line func-names
 		reader.onload = function (onLoadEvent) {
-			setUserInfo({ ...userInfo, image: onLoadEvent.target?.result as string })
+			setImageSrc(onLoadEvent.target?.result as string)
 			setUploadData(undefined)
 		}
 
@@ -58,16 +58,16 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 	async function handleOnSubmit(event: any) {
 		setIsloading(true)
 		event.preventDefault()
-		const form = event.currentTarget
-		const fileInput = Array.from(form?.elements).find(
-			({ name }) => name === "file"
-		)
+
+		const fileInput = document.querySelector(
+			"input[type=file]"
+		) as HTMLInputElement
 
 		const formData = new FormData()
 
 		// eslint-disable-next-line no-restricted-syntax
-		for (const file of fileInput.files) {
-			formData.append("file", file)
+		if (fileInput?.files != null) {
+			formData.append("file", fileInput.files[0])
 		}
 
 		formData.append("upload_preset", "my-uploads")
@@ -80,8 +80,8 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 			}
 		).then(r => r.json())
 
-		setUserInfo({ ...userInfo, image: data.secure_url })
-		setUploadData(data)
+		updateProfile(userInfo, data.secure_url)
+		handleClose()
 		setIsloading(false)
 	}
 
@@ -104,7 +104,7 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 						<div className={classes.profilepic}>
 							<Image
 								className={classes.profilepic__image}
-								src={userInfo.image}
+								src={imageSrc}
 								width={120}
 								height={120}
 								objectFit="contain"
@@ -121,15 +121,10 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 							onChange={handleOnChangeImage}
 							onSubmit={handleOnSubmit}
 						>
-							<p>
-								<input type="file" name="file" accept="image/*" />
-							</p>
-
-							{!uploadData && (
-								<p>
-									<button type="submit">Upload Files</button>
-								</p>
-							)}
+							<Button variant="contained" component="label">
+								Upload File
+								<input type="file" hidden name="file" accept="image/*" />
+							</Button>
 						</form>
 						<div className={classes.BoxField}>
 							<TextField
@@ -180,9 +175,8 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 				<DialogActions>
 					<Button onClick={handleClose}>Cancel</Button>
 					<Button
-						onClick={() => {
-							updateProfile(userInfo)
-							handleClose()
+						onClick={e => {
+							handleOnSubmit(e)
 						}}
 					>
 						Save
