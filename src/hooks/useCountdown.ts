@@ -62,7 +62,7 @@ export default function useCountdown({
 
 	const reset = useCallback(() => {
 		setTicking(false)
-		// setProgress(0);
+
 		setTime(time)
 		onStop?.()
 	}, [onStop, time])
