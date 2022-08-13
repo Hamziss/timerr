@@ -64,6 +64,11 @@ export const quotes = [
 	},
 	{
 		content:
+			"Take a chance, because you never know how perfect something can turn out.",
+		author: "J cole",
+	},
+	{
+		content:
 			"Anything’s possible, you gotta dream like you never seen obstacles.",
 		author: "J cole",
 	},

@@ -8,7 +8,7 @@ const Dashboard = () => {
 	if (status === "authenticated") {
 		return (
 			<div>
-				this is still in production :3
+				this is still in developpement (i need a designer x) )
 				<p> meanwhile you have : {userState.datauser.coins} coins</p>
 				<p>and you did {userState.datauser.sessions} sessions</p>
 			</div>
