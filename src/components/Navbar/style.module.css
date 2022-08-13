@@ -139,6 +139,12 @@
     .rightContainer {
         gap: 6px;
     }
+    .PolygonContainer {
+        right: 41px;
+    }
+    .dropdown {
+        right: 17px;
+    }
 }
 
 @media (max-width: 468px) {
