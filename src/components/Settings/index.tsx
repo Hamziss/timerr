@@ -14,7 +14,6 @@ type Props = {
 	setShowSettings: (showSettings: boolean) => void
 	settingsZustand: any
 }
-
 const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 	const { updateSettings } = useStore()
 	const [settings, setSettings] = useState({
@@ -40,30 +39,11 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 		audio.play()
 	}
 
-	const handleAutoShortBreaks = (
-		event: React.SyntheticEvent,
-		checked: boolean
-	) => {
-		setSettings({ ...settings, autoStartShortBreaks: checked })
+	const handleSwitchers = (event: React.SyntheticEvent, checked: boolean) => {
+		const { name } = event.target as HTMLInputElement
+		setSettings({ ...settings, [name]: checked })
 	}
-	const handleAutoStartPomodoros = (
-		event: React.SyntheticEvent,
-		checked: boolean
-	) => {
-		setSettings({ ...settings, autoStartPomodoros: checked })
-	}
-	const handleAutoStartLongBreaks = (
-		event: React.SyntheticEvent,
-		checked: boolean
-	) => {
-		setSettings({ ...settings, autoStartLongBreaks: checked })
-	}
-	const handleActiveAlarmSound = (
-		event: React.SyntheticEvent,
-		checked: boolean
-	) => {
-		setSettings({ ...settings, activeAlarm: checked })
-	}
+
 	const handleChangeSettings = (event: any) => {
 		const { name, value } = event.target
 		const convertedValue = Number(value)
@@ -155,7 +135,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							control={<IOSSwitch sx={{ m: 1 }} />}
 							label=""
 							name="autoStartPomodoros"
-							onChange={handleAutoStartPomodoros}
+							onChange={handleSwitchers}
 							checked={settingsZustand.autoStartPomodoros}
 						/>
 					</div>
@@ -165,7 +145,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							control={<IOSSwitch sx={{ m: 1 }} />}
 							label=""
 							name="autoStartShortBreaks"
-							onChange={handleAutoShortBreaks}
+							onChange={handleSwitchers}
 							checked={settingsZustand.autoStartShortBreaks}
 						/>
 					</div>
@@ -175,7 +155,7 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 							control={<IOSSwitch sx={{ m: 1 }} />}
 							label=""
 							name="autoStartLongBreaks"
-							onChange={handleAutoStartLongBreaks}
+							onChange={handleSwitchers}
 							checked={settingsZustand.autoStartLongBreaks}
 						/>
 					</div>
@@ -186,8 +166,8 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 					<FormControlLabel
 						control={<IOSSwitch sx={{ m: 1 }} />}
 						label=""
-						name="autoStartLongBreaks"
-						onChange={handleActiveAlarmSound}
+						name="activeAlarm"
+						onChange={handleSwitchers}
 						checked={settingsZustand.activeAlarm}
 					/>
 				</div>
