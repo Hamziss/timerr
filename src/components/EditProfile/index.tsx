@@ -71,13 +71,10 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 
 		formData.append("upload_preset", "my-uploads")
 
-		const data = await fetch(
-			"https://api.cloudinary.com/v1_1/dyzwu7mr1/image/upload",
-			{
-				method: "POST",
-				body: formData,
-			}
-		).then(r => r.json())
+		const data = await fetch(`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}`, {
+			method: "POST",
+			body: formData,
+		}).then(r => r.json())
 
 		updateProfile(userInfo, data.secure_url)
 		handleClose()

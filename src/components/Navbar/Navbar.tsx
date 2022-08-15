@@ -53,13 +53,12 @@ const Navbar = () => {
 			url: `users/${session?.user._id}`,
 			icon: <Image src={UserIcon} />,
 		},
-
 		{
 			label: (
 				// eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
 				<div
 					onClick={async () => {
-						await logout()
+						logout()
 						await signOut({ callbackUrl: "/" })
 						Router.push("/")
 					}}
