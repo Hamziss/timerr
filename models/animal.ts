@@ -18,6 +18,7 @@ const animalSchema: Schema = new mongoose.Schema(
 	},
 	{ timestamps: true }
 )
+
 const animal: Model<IAnimal> =
 	mongoose.models.animal || mongoose.model("animal", animalSchema)
 export default animal
