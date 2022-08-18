@@ -9,8 +9,8 @@ export interface IUser {
 	updatedAt: string
 	time: number
 	__v: number
-	sessions: number
 	coins: number
+	sessions: number
 	animals: any[]
 	bio: string
 	trees: any[]
