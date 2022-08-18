@@ -14,6 +14,7 @@ type Props = {
 	setShowSettings: (showSettings: boolean) => void
 	settingsZustand: any
 }
+
 const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 	const { updateSettings } = useStore()
 	const [settings, setSettings] = useState({

@@ -34,5 +34,4 @@ const RankingTable = ({ users }: Props) => (
 		</div>
 	</div>
 )
-
 export default RankingTable

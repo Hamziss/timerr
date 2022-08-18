@@ -8,7 +8,7 @@ const timerState = {
 		autoStartShortBreaks: false,
 		autoStartLongBreaks: false,
 		activeAlarm: true,
-		alarmVolume: 40,
+		alarmVolume: 45,
 	},
 }
 

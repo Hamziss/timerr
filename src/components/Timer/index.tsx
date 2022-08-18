@@ -29,7 +29,6 @@ const styleBtn = {
 	maxHeight: "50px",
 	color: "#4483ff",
 }
-
 const Timer = () => {
 	const { updateUserSession, timerState } = useStore()
 	const { settings } = timerState

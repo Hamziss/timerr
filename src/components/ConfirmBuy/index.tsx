@@ -6,7 +6,6 @@ import DialogTitle from "@mui/material/DialogTitle"
 import Slide from "@mui/material/Slide"
 import { TransitionProps } from "@mui/material/transitions"
 import Image from "next/image"
-
 import React from "react"
 import { toast } from "react-toastify"
 import Coin from "../../../public/images/Store/Coin.png"

@@ -1,48 +1,49 @@
 :root {
-    --main-orange: #ffb23a;
-    --deep-orange: #fea71f;
+	--main-orange: #ffb23a;
+	--deep-orange: #fea71f;
 }
 
 ::-webkit-scrollbar {
-    width: 9px;
+	width: 9px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #dddddd;
+	background: #dddddd;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--deep-orange);
-    transition: background-color 300ms ease-in;
+	background-color: var(--deep-orange);
+	transition: background-color 300ms ease-in;
 }
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    overflow-x: hidden;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+	overflow-x: hidden;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 button {
-    all: unset;
+	all: unset;
 }
 
 @media (prefers-color-scheme: white) {
-    html {
-        color-scheme: white;
-    }
-    body {
-        color: rgb(0, 0, 0);
-        background: rgb(255, 255, 255);
-    }
+	html {
+		color-scheme: white;
+	}
+	body {
+		color: rgb(0, 0, 0);
+		background: rgb(255, 255, 255);
+	}
 }

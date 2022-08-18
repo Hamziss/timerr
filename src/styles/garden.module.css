@@ -1,82 +1,82 @@
 .terreContainer {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    background-image: url("../../public/images/Garden/soil.png");
-    background-repeat: repeat;
-    justify-content: center;
-    gap: 4vw;
-    height: 55px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+	background-image: url("../../public/images/Garden/soil.png");
+	background-repeat: repeat;
+	justify-content: center;
+	gap: 4vw;
+	height: 55px;
 }
 
 .gardenWrapper {
-    margin: 52px 0;
-    gap: 107px;
-    display: flex;
-    flex-direction: column;
+	margin: 52px 0;
+	gap: 107px;
+	display: flex;
+	flex-direction: column;
 }
 
-.terreContainer>div {
-    position: relative;
-    height: 72px;
-    width: 100px;
-    z-index: -1;
-    transform: translate(0, -53px);
+.terreContainer > div {
+	position: relative;
+	height: 72px;
+	width: 100px;
+	z-index: -1;
+	transform: translate(0, -53px);
 }
 
 .titleContainer {
-    display: flex;
-    justify-content: flex-start;
-    font-family: "Poppins";
-    align-items: center;
-    margin-left: 4vw;
+	display: flex;
+	justify-content: flex-start;
+	font-family: "Poppins";
+	align-items: center;
+	margin-left: 4.05vw;
 }
 
-.titleContainer>h1 {
-    font-weight: 700;
-    font-size: clamp(20px, 2.5vw, 45px);
+.titleContainer > h1 {
+	font-weight: 700;
+	font-size: clamp(20px, 2.5vw, 45px);
 }
 
 .circleContainer2 {
-    z-index: -1;
-    width: 14vw;
-    max-width: 213px;
-    position: absolute;
-    right: 0;
-    top: 69px;
+	z-index: -1;
+	width: 14vw;
+	max-width: 213px;
+	position: absolute;
+	right: 0;
+	top: 69px;
 }
 
 .circleContainer {
-    height: 2px;
-    transform: translate(-12vw, 1px);
-    z-index: -1;
-    width: 43vw;
-    max-width: 265px;
-    position: absolute;
-    left: 0;
-    top: 62vh;
+	height: 2px;
+	transform: translate(-12vw, 1px);
+	z-index: -1;
+	width: 43vw;
+	max-width: 265px;
+	position: absolute;
+	left: 0;
+	top: 62vh;
 }
 
 @media screen and (max-width: 768px) {
-    .terreContainer {
-        gap: 1vw;
-    }
-    .terreContainer>div {
-        height: 53px;
-        width: 63px;
-        transform: translate(0, -45px);
-    }
+	.terreContainer {
+		gap: 1vw;
+	}
+	.terreContainer > div {
+		height: 53px;
+		width: 63px;
+		transform: translate(0, -45px);
+	}
 }
 
 @media screen and (max-width: 500px) {
-    .terreContainer {
-        gap: 0;
-    }
+	.terreContainer {
+		gap: 0;
+	}
 }
 
 @media screen and (max-width: 435px) {
-    .terreContainer>div {
-        transform: translate(0, -39px);
-        height: 39px;
-    }
+	.terreContainer > div {
+		transform: translate(0, -39px);
+		height: 39px;
+	}
 }
