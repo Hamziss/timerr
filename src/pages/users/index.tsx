@@ -19,6 +19,7 @@ const Users = ({ users }: Props) => {
 	if (status === "unauthenticated") {
 		return <NotFoundPage />
 	}
+
 	return (
 		<div>
 			<div className={classes.Wrapper}>

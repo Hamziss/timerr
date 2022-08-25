@@ -20,6 +20,7 @@
 .midContainer {
     position: absolute;
     height: 60px;
+    padding-right: 19px;
     display: flex;
     left: 50%;
     transform: translate(-50%, 0%);
@@ -134,7 +135,7 @@
         min-width: 75px;
     }
     .navBarContainer {
-        padding: 0 10px;
+        padding: 0px 3px;
     }
     .rightContainer {
         gap: 6px;
