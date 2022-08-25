@@ -137,7 +137,7 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 										spaceBetween: 20,
 									},
 									768: {
-										slidesPerView: 3,
+										slidesPerView: 2,
 										spaceBetween: 20,
 									},
 									1024: {
@@ -178,7 +178,7 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 										spaceBetween: 20,
 									},
 									768: {
-										slidesPerView: 3,
+										slidesPerView: 2,
 										spaceBetween: 20,
 									},
 									1024: {
@@ -218,7 +218,7 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 										spaceBetween: 20,
 									},
 									768: {
-										slidesPerView: 3,
+										slidesPerView: 2,
 										spaceBetween: 20,
 									},
 									1024: {
