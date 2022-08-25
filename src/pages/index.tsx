@@ -1,8 +1,7 @@
 /* eslint-disable no-console */
-import type { NextPage } from "next"
+import type { GetServerSideProps, NextPage } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { useEffect, useState } from "react"
 import arrowRight from "../../public/images/Home/arrowRight.png"
 import cirle from "../../public/images/Home/circle.png"
 import cirleBoy from "../../public/images/Home/circleBoy.png"
@@ -26,99 +25,104 @@ import Footer from "../components/Footer"
 import Timer from "../components/Timer"
 import classes from "../styles/Home.module.css"
 
-const Home: NextPage = () => {
-	const [quote, setQuote] = useState({ content: "", author: "" })
-	useEffect(() => {
-		setQuote(getRandomQuote(quotes))
-	}, [])
-
-	return (
-		<main className={classes.main}>
-			<div className={classes.bgHero} />
-			<div className={classes.circleContainer}>
-				<Image layout="responsive" src={circleHero} />
+interface Props {
+	quote: {
+		content: string
+		author: string
+	}
+}
+const Home: NextPage<Props> = ({ quote }) => (
+	<main className={classes.main}>
+		<div className={classes.bgHero} />
+		<div className={classes.circleContainer}>
+			<Image layout="responsive" src={circleHero} />
+		</div>
+		<section className={classes.heroSection}>
+			<Timer />
+		</section>
+		<section className={classes.motivationSection}>
+			<div className={classes.cirleBoyContainer}>
+				<Image src={cirleBoy} />
 			</div>
-			<section className={classes.heroSection}>
-				<Timer />
-			</section>
-			<section className={classes.motivationSection}>
-				<div className={classes.cirleBoyContainer}>
-					<Image src={cirleBoy} />
+			<div className={classes.quoteContainer}>
+				<div className={classes.sparkle}>
+					<Image src={Sparkle} />
 				</div>
-				<div className={classes.quoteContainer}>
-					<div className={classes.sparkle}>
-						<Image src={Sparkle} />
-					</div>
-					<div className={classes.quotetextContainer}>
-						<span>&quot;{quote.content}&quot;</span> -
-						<span>{quote.author}</span>
-					</div>
-					<div className={classes.sparkle}>
-						<Image src={Sparkle} />
-					</div>
+				<div className={classes.quotetextContainer}>
+					<span>&quot;{quote.content}&quot;</span> -<span>{quote.author}</span>
 				</div>
-				<div className={classes.cirleGirlContainer}>
-					<Image placeholder="blur" src={cirleGirl} />
+				<div className={classes.sparkle}>
+					<Image src={Sparkle} />
 				</div>
-			</section>
+			</div>
+			<div className={classes.cirleGirlContainer}>
+				<Image placeholder="blur" src={cirleGirl} />
+			</div>
+		</section>
 
-			<section className={classes.aboutSection}>
-				<div className={classes.firstBubble}>
-					<div>
-						<Image src={leftCorne} />
-					</div>
-					<div>What is timerr ?</div>
+		<section className={classes.aboutSection}>
+			<div className={classes.firstBubble}>
+				<div>
+					<Image src={leftCorne} />
 				</div>
+				<div>What is timerr ?</div>
+			</div>
 
-				<div className={classes.rightBubble}>
-					<div>{SECOND_BUBBLE_TEXT}</div>
-					<div>
-						<Image layout="fill" src={rightCorne} />
-					</div>
+			<div className={classes.rightBubble}>
+				<div>{SECOND_BUBBLE_TEXT}</div>
+				<div>
+					<Image layout="fill" src={rightCorne} />
 				</div>
-				<div className={classes.girlBubble1}>
-					<Image layout="responsive" src={girlBubble1} />
+			</div>
+			<div className={classes.girlBubble1}>
+				<Image layout="responsive" src={girlBubble1} />
+			</div>
+			<div className={classes.firstBubble}>
+				<div>
+					<Image src={leftCorne} />
 				</div>
-				<div className={classes.firstBubble}>
-					<div>
-						<Image src={leftCorne} />
-					</div>
-					<div>{THIRD_BUBBLE_TEXT}</div>
+				<div>{THIRD_BUBBLE_TEXT}</div>
+			</div>
+			<div className={classes.rightBubble}>
+				<div>{FOURTH_BUBBLE_TEXT}</div>
+				<div>
+					<Image layout="fill" src={rightCorne} />
 				</div>
-				<div className={classes.rightBubble}>
-					<div>{FOURTH_BUBBLE_TEXT}</div>
-					<div>
-						<Image layout="fill" src={rightCorne} />
-					</div>
+			</div>
+			<div className={classes.girlBubble1}>
+				<Image layout="responsive" src={girlBubble2} />
+			</div>
+		</section>
+		<div className={classes.wavesOpacity} />
+		<section className={classes.sectionStore}>
+			<div className={classes.textContainer}>
+				<div className="circleContainer">
+					<Image layout="responsive" src={cirle} />
 				</div>
-				<div className={classes.girlBubble1}>
-					<Image layout="responsive" src={girlBubble2} />
+				<h1>The Store</h1>
+				<p>{STORE_PARAGARAPH}</p>
+				<div>
+					<Link href="/store">
+						<button type="submit">
+							<span>Go to Store</span>
+							<Image height={10} width={20} src={arrowRight} />
+						</button>
+					</Link>
 				</div>
-			</section>
-			<div className={classes.wavesOpacity} />
-			<section className={classes.sectionStore}>
-				<div className={classes.textContainer}>
-					<div className="circleContainer">
-						<Image layout="responsive" src={cirle} />
-					</div>
-					<h1>The Store</h1>
-					<p>{STORE_PARAGARAPH}</p>
-					<div>
-						<Link href="/store">
-							<button type="submit">
-								<span>Go to Store</span>
-								<Image height={10} width={20} src={arrowRight} />
-							</button>
-						</Link>
-					</div>
-				</div>
-				<div className={classes.StoreImageContainer}>
-					<Image src={Sinjab} />
-				</div>
-			</section>
-			<Footer />
-		</main>
-	)
+			</div>
+			<div className={classes.StoreImageContainer}>
+				<Image src={Sinjab} />
+			</div>
+		</section>
+		<Footer />
+	</main>
+)
+
+export const getServerSideProps: GetServerSideProps = async () => {
+	const quote = getRandomQuote(quotes)
+	return {
+		props: { quote },
+	}
 }
 
 export default Home
