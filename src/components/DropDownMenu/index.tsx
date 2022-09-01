@@ -1,6 +1,7 @@
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { useState } from "react"
+import * as uuid from "uuid"
 import useClickOutside from "../../hooks/useClickOutside"
 import classes from "./style.module.css"
 
@@ -36,15 +37,14 @@ export default function DropDownMenu({
 				<div className={classes.dropdownContent}>
 					{options
 						.filter(e => e !== selected)
-						.map((option: string, index: number) => (
+						.map((option: string) => (
 							<button
 								type="submit"
 								onClick={() => {
 									setSelected(option)
 									setIsOpen(!isOpen)
 								}}
-								// eslint-disable-next-line react/no-array-index-key
-								key={index}
+								key={uuid.v4()}
 								className="dropdown-item"
 							>
 								{option}
