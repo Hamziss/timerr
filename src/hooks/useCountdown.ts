@@ -3,9 +3,9 @@ import { useCallback, useEffect, useRef, useState } from "react"
 
 interface Props {
 	minutes: number
-	onStart: () => void
-	onStop: () => void
-	onComplete: () => void
+	onStart?: () => void
+	onStop?: () => void
+	onComplete?: () => void
 }
 export default function useCountdown({
 	minutes,

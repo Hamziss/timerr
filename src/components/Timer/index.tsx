@@ -11,30 +11,23 @@ import {
 	CircularProgressbarWithChildren,
 } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
-import { toast } from "react-toastify"
 import Bousole from "../../../public/images/Home/bousole.png"
 import Clock from "../../../public/images/Home/Clock.png"
 import { formatTime, updateFavicon, updateTitle } from "../../../utils/helpers"
 import useCountdown from "../../hooks/useCountdown"
-import withNoSSR from "../../hooks/useNoSSR"
+
 import useStore from "../../zustand/store"
 import Settings from "../Settings"
+import completeHandler, { handleMode } from "./handlers"
 import RadialSeparators from "./Separtors"
 import classes from "./style.module.css"
 
-const styleBtn = {
-	height: "4vw",
-	width: "4vw",
-	maxWidth: "50px",
-	maxHeight: "50px",
-	color: "#4483ff",
-}
 const Timer = () => {
+	// state
 	const { updateUserSession, timerState } = useStore()
 	const { settings } = timerState
 	const { status } = useSession()
-	// state
-	const [timer, setTimer] = useState(settings.timepomodoro)
+	const [timer, setTimer] = useState(0)
 	const [mode, setmode] = useState("POMODORO")
 	const [showSettings, setShowSettings] = useState(false)
 	const [pomodoroCount, setPomodoroCount] = useState(0)
@@ -44,78 +37,21 @@ const Timer = () => {
 		onStart: () => {
 			updateFavicon(mode)
 		},
-		onStop: () => {},
 		onComplete: () => {
-			if (settings.activeAlarm) {
-				const audio = new Audio()
-				audio.src = "/sounds/alarm.mp3"
-				audio.loop = false
-				audio.volume = settings.alarmVolume / 100
-				audio.play()
-			}
-			setPomodoroCount(pomodoroCount + 1)
-			if (mode === "POMODORO" && pomodoroCount < settings.longbreakevery) {
-				setmode("SHORT_BREAK")
-				setTimer(settings.shortbreak)
-
-				if (status === "authenticated") {
-					updateUserSession(settings.timepomodoro)
-					toast.success(
-						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
-					)
-				}
-				reset()
-				if (settings.autoStartShortBreaks) {
-					start()
-				}
-			} else if (
-				mode === "POMODORO" &&
-				pomodoroCount === settings.longbreakevery
-			) {
-				setmode("LONG_BREAK")
-				setTimer(settings.longbreak)
-				if (status === "authenticated") {
-					updateUserSession(settings.timepomodoro)
-					toast.success(
-						`Congrats! You Won ${settings.timepomodoro * 50} Coins & Tree!`
-					)
-				}
-				reset()
-				if (settings.autoStartLongBreaks) {
-					start()
-				}
-			} else if (mode === "SHORT_BREAK") {
-				setmode("POMODORO")
-				setTimer(settings.timepomodoro)
-				reset()
-				if (settings.autoStartPomodoros) {
-					start()
-				}
-			} else if (mode === "LONG_BREAK") {
-				setmode("POMODORO")
-				setTimer(settings.timepomodoro)
-				reset()
-				if (settings.autoStartPomodoros) {
-					start()
-				}
-			}
+			completeHandler({
+				settings,
+				setmode,
+				setTimer,
+				pomodoroCount,
+				mode,
+				setPomodoroCount,
+				start,
+				reset,
+				updateUserSession,
+				status,
+			})
 		},
 	})
-	// eslint-disable-next-line no-shadow
-	const handleMode = (mode: string) => {
-		if (mode === "SHORT_BREAK") {
-			setmode("SHORT_BREAK")
-			setTimer(settings.shortbreak)
-		} else if (mode === "LONG_BREAK") {
-			setmode("LONG_BREAK")
-			setTimer(settings.longbreak)
-		} else if (mode === "POMODORO") {
-			setmode("POMODORO")
-			setTimer(settings.timepomodoro)
-		}
-		reset()
-		updateFavicon(mode)
-	}
 
 	const toggleTimer = useCallback(() => {
 		if (ticking) {
@@ -159,7 +95,9 @@ const Timer = () => {
 							backgroundColor: mode === "POMODORO" ? "#ff3939" : "#fec84c",
 						}}
 						type="submit"
-						onClick={() => handleMode("POMODORO")}
+						onClick={() =>
+							handleMode("POMODORO", setmode, setTimer, settings, reset)
+						}
 					>
 						Pomodoro
 					</button>
@@ -168,7 +106,9 @@ const Timer = () => {
 							backgroundColor: mode === "SHORT_BREAK" ? "#4483ff" : "#fec84c",
 						}}
 						type="submit"
-						onClick={() => handleMode("SHORT_BREAK")}
+						onClick={() =>
+							handleMode("SHORT_BREAK", setmode, setTimer, settings, reset)
+						}
 					>
 						Small Break
 					</button>
@@ -177,7 +117,9 @@ const Timer = () => {
 							backgroundColor: mode === "LONG_BREAK" ? "#4483ff" : "#fec84c",
 						}}
 						type="submit"
-						onClick={() => handleMode("LONG_BREAK")}
+						onClick={() =>
+							handleMode("LONG_BREAK", setmode, setTimer, settings, reset)
+						}
 					>
 						Long Break
 					</button>
@@ -200,8 +142,7 @@ const Timer = () => {
 							style={{
 								background: "#fff",
 								width: "1px",
-
-								height: `${6}%`,
+								height: "6%",
 							}}
 						/>
 						<div
@@ -209,7 +150,6 @@ const Timer = () => {
 							style={{ fontSize: 12, marginTop: -5 }}
 						>
 							<span className={classes.time}>{formatTime(timeLeft)}</span>
-
 							<button type="submit" onClick={toggleTimer}>
 								{ticking ? (
 									<PauseIcon
@@ -245,5 +185,11 @@ const Timer = () => {
 		</>
 	)
 }
-
-export default withNoSSR(Timer)
+const styleBtn = {
+	height: "4vw",
+	width: "4vw",
+	maxWidth: "50px",
+	maxHeight: "50px",
+	color: "#4483ff",
+}
+export default Timer
