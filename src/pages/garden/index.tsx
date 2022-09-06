@@ -5,7 +5,6 @@ import Cactus from "../../../public/images/Garden/sskoo.png"
 import circle from "../../../public/images/Home/circle.png"
 import rightCircle from "../../../public/images/Home/circleRight.png"
 import { GetRowTree } from "../../../utils/helpers"
-import withNoSSR from "../../hooks/useNoSSR"
 import classes from "../../styles/garden.module.css"
 import useStore from "../../zustand/store"
 import NotFoundPage from "../404"
@@ -56,4 +55,4 @@ const Garden = () => {
 	return <NotFoundPage />
 }
 
-export default withNoSSR(Garden)
+export default Garden
