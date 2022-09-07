@@ -1,6 +1,6 @@
 export const postData = async(url, post, token) => {
     // TODO: remplace hard coded url by env variable
-    const res = await fetch(`https://timerr-dev.vercel.app/api/${url}`, {
+    const res = await fetch(`/api/${url}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
