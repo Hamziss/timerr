@@ -42,7 +42,7 @@ const Home: NextPage<Props> = ({ quote }) => (
 		</section>
 		<section className={classes.motivationSection}>
 			<div className={classes.cirleBoyContainer}>
-				<Image priority placeholder="blur" src={cirleBoy} />
+				<Image placeholder="blur" src={cirleBoy} />
 			</div>
 			<div className={classes.quoteContainer}>
 				<div className={classes.sparkle}>
@@ -56,7 +56,7 @@ const Home: NextPage<Props> = ({ quote }) => (
 				</div>
 			</div>
 			<div className={classes.cirleGirlContainer}>
-				<Image priority placeholder="blur" src={cirleGirl} />
+				<Image placeholder="blur" src={cirleGirl} />
 			</div>
 		</section>
 
