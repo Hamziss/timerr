@@ -74,7 +74,10 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 								onChange={handleChangeSettings}
 								defaultValue={settingsZustand.timepomodoro}
 								sx={{ maxWidth: "100px" }}
-								InputProps={{ sx: { height: 46, backgroundColor: "#dfdfdf" } }}
+								InputProps={{
+									sx: { height: 46, backgroundColor: "#dfdfdf" },
+									inputProps: { min: 1 },
+								}}
 							/>
 						</div>
 						<div>
@@ -89,7 +92,10 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 								onChange={handleChangeSettings}
 								defaultValue={settingsZustand.shortbreak}
 								sx={{ maxWidth: "100px" }}
-								InputProps={{ sx: { height: 46, backgroundColor: "#dfdfdf" } }}
+								InputProps={{
+									inputProps: { min: 1 },
+									sx: { height: 46, backgroundColor: "#dfdfdf" },
+								}}
 							/>
 						</div>
 						<div>
@@ -103,7 +109,10 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 								}}
 								onChange={handleChangeSettings}
 								defaultValue={settingsZustand.longbreak}
-								InputProps={{ sx: { height: 46, backgroundColor: "#dfdfdf" } }}
+								InputProps={{
+									inputProps: { min: 1 },
+									sx: { height: 46, backgroundColor: "#dfdfdf" },
+								}}
 								sx={{ maxWidth: "100px" }}
 							/>
 						</div>
@@ -118,7 +127,10 @@ const Settings = ({ setShowSettings, settingsZustand }: Props) => {
 								}}
 								onChange={handleChangeSettings}
 								defaultValue={settingsZustand.longbreakevery}
-								InputProps={{ sx: { height: 46, backgroundColor: "#dfdfdf" } }}
+								InputProps={{
+									inputProps: { min: 1 },
+									sx: { height: 46, backgroundColor: "#dfdfdf" },
+								}}
 								sx={{ maxWidth: "150px" }}
 							/>
 						</div>
