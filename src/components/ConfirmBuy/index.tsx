@@ -19,14 +19,7 @@ type Props = {
 	open: boolean
 	handleClose: () => void
 }
-const Transition = React.forwardRef(
-	(
-		props: TransitionProps & {
-			children: React.ReactElement<any, any>
-		},
-		ref: React.Ref<unknown>
-	) => <Slide direction="up" ref={ref} {...props} />
-)
+
 const ConfirmBuy = ({ open, handleClose, animal }: Props) => {
 	const { userState, buyAnimal } = useStore()
 	const Price = userState.datauser.coins - animal.price
@@ -85,5 +78,12 @@ const ConfirmBuy = ({ open, handleClose, animal }: Props) => {
 		</div>
 	)
 }
-
+const Transition = React.forwardRef(
+	(
+		props: TransitionProps & {
+			children: React.ReactElement<any, any>
+		},
+		ref: React.Ref<unknown>
+	) => <Slide direction="up" ref={ref} {...props} />
+)
 export default ConfirmBuy

@@ -20,15 +20,6 @@ interface Props {
 	user: IUser
 }
 
-const Transition = React.forwardRef(
-	(
-		props: TransitionProps & {
-			children: React.ReactElement<any, any>
-		},
-		ref: React.Ref<unknown>
-	) => <Slide direction="up" ref={ref} {...props} />
-)
-
 export default function EditProfile({ open, handleClose, user }: Props) {
 	const { updateProfile } = useStore()
 	const [imageSrc, setImageSrc] = useState(user.image)
@@ -70,7 +61,6 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 		}
 
 		formData.append("upload_preset", "my-uploads")
-
 		const data = await fetch(`${process.env.NEXT_PUBLIC_CLOUDINARY_URL}`, {
 			method: "POST",
 			body: formData,
@@ -182,3 +172,11 @@ export default function EditProfile({ open, handleClose, user }: Props) {
 		</div>
 	)
 }
+const Transition = React.forwardRef(
+	(
+		props: TransitionProps & {
+			children: React.ReactElement<any, any>
+		},
+		ref: React.Ref<unknown>
+	) => <Slide direction="up" ref={ref} {...props} />
+)
