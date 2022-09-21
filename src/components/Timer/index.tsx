@@ -6,6 +6,8 @@ import { useSession } from "next-auth/react"
 import Head from "next/head"
 import Image from "next/image"
 import { useCallback, useEffect, useState } from "react"
+
+import dynamic from "next/dynamic"
 import {
 	buildStyles,
 	CircularProgressbarWithChildren,
@@ -15,13 +17,13 @@ import Bousole from "../../../public/images/Home/bousole.png"
 import Clock from "../../../public/images/Home/Clock.png"
 import { formatTime, updateFavicon, updateTitle } from "../../../utils/helpers"
 import useCountdown from "../../hooks/useCountdown"
-
 import useStore from "../../zustand/store"
 import Settings from "../Settings"
 import completeHandler, { handleMode } from "./handlers"
 import RadialSeparators from "./Separtors"
 import classes from "./style.module.css"
 
+const Confetti = dynamic(() => import("react-canvas-confetti"), { ssr: false })
 const Timer = () => {
 	// state
 	const { updateUserSession, timerState } = useStore()
@@ -29,6 +31,7 @@ const Timer = () => {
 	const { status } = useSession()
 	const [timer, setTimer] = useState(0)
 	const [mode, setmode] = useState("POMODORO")
+	const [fireConfetti, setFireConfetti] = useState(false)
 	const [showSettings, setShowSettings] = useState(false)
 	const [pomodoroCount, setPomodoroCount] = useState(0)
 
@@ -36,8 +39,12 @@ const Timer = () => {
 		minutes: timer,
 		onStart: () => {
 			updateFavicon(mode)
+			setFireConfetti(false)
 		},
 		onComplete: () => {
+			if (mode === "POMODORO") {
+				setFireConfetti(true)
+			}
 			completeHandler({
 				settings,
 				setmode,
@@ -85,6 +92,21 @@ const Timer = () => {
 					setShowSettings={setShowSettings}
 				/>
 			)}
+			<div className={classes.confettiContainer}>
+				<Confetti
+					style={{ width: "100%", height: "100%" }}
+					fire={fireConfetti}
+					className="canvas"
+					decay={0.9}
+					gravity={0.4}
+					particleCount={1351}
+					scalar={1}
+					shapes={["circle", "square"]}
+					spread={360}
+					startVelocity={54}
+					ticks={996}
+				/>
+			</div>
 			<div className={classes.timerContainer}>
 				<div className={classes.clockContainer}>
 					<Image priority layout="fill" placeholder="blur" src={Clock} />
@@ -159,6 +181,7 @@ const Timer = () => {
 											maxWidth: "50px",
 											maxHeight: "50px",
 											color: "#ff3939",
+											zIndex: "2",
 										}}
 									/>
 								) : (
@@ -191,5 +214,6 @@ const styleBtn = {
 	maxWidth: "50px",
 	maxHeight: "50px",
 	color: "#4483ff",
+	zIndex: "2",
 }
 export default Timer

@@ -4,7 +4,6 @@ import Image from "next/image"
 import Cactus from "../../../public/images/Garden/sskoo.png"
 import circle from "../../../public/images/Home/circle.png"
 import rightCircle from "../../../public/images/Home/circleRight.png"
-import { GetRowTree } from "../../../utils/helpers"
 import classes from "../../styles/garden.module.css"
 import useStore from "../../zustand/store"
 import NotFoundPage from "../404"
@@ -12,16 +11,14 @@ import NotFoundPage from "../404"
 const Garden = () => {
 	const { userState } = useStore()
 	const { status } = useSession()
-	const trees = userState.datauser.trees as any[] // 20 trees
-	const devidedTrees: any = []
-	let rowIndex = 0 // current row
+	const trees = userState.datauser.trees as any[]
+	const devidedTrees = []
 
-	while (rowIndex <= trees?.length) {
-		const newRow = GetRowTree(trees, rowIndex)
-
-		devidedTrees.push(newRow)
-		rowIndex += 8
+	const RowSize = 8
+	for (let i = 0; i < trees?.length; i += RowSize) {
+		devidedTrees.push(trees.slice(i, i + RowSize))
 	}
+
 	if (status === "loading") {
 		return <div>Loading...</div>
 	}

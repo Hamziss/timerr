@@ -93,26 +93,6 @@ export function choosebgColorUpperDivCard(rarety: string) {
 	}
 }
 
-export function GetRowTree(trees: any[], rows: number) {
-	let row: any = []
-	// eslint-disable-next-line no-plusplus
-	const checkarrow = trees.length - rows
-	if (checkarrow < 8) {
-		let i = rows
-		while (i < trees.length) {
-			row = [...row, trees[i]]
-			i++
-		}
-	} else {
-		let i = rows
-		while (i < 8) {
-			row = [...row, trees[i]]
-			i++
-		}
-	}
-	return row
-}
-
 export function FormatTimetoHours(time: number) {
 	const hours = Math.trunc(time / 60)
 	const minutes = time % 60
