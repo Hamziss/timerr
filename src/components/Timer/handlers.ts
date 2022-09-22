@@ -21,8 +21,9 @@ export default function completeHandler({
 		audio.volume = settings.alarmVolume / 100
 		audio.play()
 	}
-	setPomodoroCount(pomodoroCount + 1)
+
 	if (mode === "POMODORO" && pomodoroCount < settings.longbreakevery) {
+		setPomodoroCount(pomodoroCount + 1)
 		setmode("SHORT_BREAK")
 		setTimer(settings.shortbreak)
 
@@ -37,6 +38,7 @@ export default function completeHandler({
 			start()
 		}
 	} else if (mode === "POMODORO" && pomodoroCount === settings.longbreakevery) {
+		setPomodoroCount(pomodoroCount + 1)
 		setmode("LONG_BREAK")
 		setTimer(settings.longbreak)
 		if (status === "authenticated") {

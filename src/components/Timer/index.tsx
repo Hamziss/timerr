@@ -39,7 +39,6 @@ const Timer = () => {
 		minutes: timer,
 		onStart: () => {
 			updateFavicon(mode)
-			setFireConfetti(false)
 		},
 		onComplete: () => {
 			if (mode === "POMODORO") {
@@ -94,6 +93,7 @@ const Timer = () => {
 			)}
 			<div className={classes.confettiContainer}>
 				<Confetti
+					onDecay={() => setFireConfetti(false)}
 					style={{ width: "100%", height: "100%" }}
 					fire={fireConfetti}
 					className="canvas"
