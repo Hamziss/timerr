@@ -8,11 +8,10 @@ import Podium from "../../components/Podium"
 import RankingTable from "../../components/RankingTable"
 import getData from "../../services/fetchData/getData"
 import classes from "../../styles/users.module.css"
-import { IUser } from "../../types/user"
 import NotFoundPage from "../404"
 
 type Props = {
-	users: IUser[]
+	users: any
 }
 const Users = ({ users }: Props) => {
 	const { status } = useSession()

@@ -4,11 +4,10 @@ import third from "../../../public/images/Users/3.png"
 import firstPlace from "../../../public/images/Users/firstPlace.png"
 import secondPlace from "../../../public/images/Users/secondPlace.png"
 import { FormatTimetoHours } from "../../../utils/helpers"
-import { IUser } from "../../types/user"
 import classes from "./style.module.css"
 
 type Props = {
-	users: IUser[]
+	users: any[]
 }
 
 const Podium = ({ users }: Props) => (
@@ -17,7 +16,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image height={50} width={50} src={secondPlace} />
 			</div>
-			<Link href={`/users/${users[1].id}`}>
+			<Link href={`/users/${users[1]._id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image
@@ -38,7 +37,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image objectFit="contain" height={65} width={65} src={firstPlace} />
 			</div>
-			<Link href={`/users/${users[0].id}`}>
+			<Link href={`/users/${users[0]._id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image
@@ -59,7 +58,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image objectFit="contain" height={40} width={40} src={third} />
 			</div>
-			<Link href={`/users/${users[2].id}`}>
+			<Link href={`/users/${users[2]._id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image
