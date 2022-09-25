@@ -25,6 +25,37 @@ export default function SignIn() {
 				</Link>
 				<h1>Sign in</h1>
 				<p>Enter your credentials to access your account </p>
+				<button
+					type="submit"
+					className={classes.githubBtn}
+					onClick={() =>
+						signIn("github", {
+							redirect: false,
+							callbackUrl: `${window.location.origin}`,
+						})
+					}
+				>
+					sign in with github
+				</button>
+
+				<button
+					type="submit"
+					className={classes.googleBtn}
+					onClick={() =>
+						signIn("google", {
+							redirect: false,
+							callbackUrl: `${window.location.origin}`,
+						})
+					}
+				>
+					<Image width={20} height={20} src="/images/google.png" />
+					Sign in with Google
+				</button>
+				<div className={classes.separator}>
+					<div className={classes.firsthalf} />
+					OR
+					<div className={classes.secondhalf} />
+				</div>
 				<Formik
 					initialValues={{ email: "", password: "" }}
 					validationSchema={Yup.object({

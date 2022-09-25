@@ -18,7 +18,8 @@ export default async function userHandler(
 			try {
 				const user = await Users.findById(id).select("-password -isAdmin")
 
-				if (user) return res.status(200).json({ user })
+				if (user)
+					return res.status(200).json({ user: { id: user._id, ...user._doc } })
 
 				return res.status(404).json({ msg: "User not found" })
 			} catch (error) {

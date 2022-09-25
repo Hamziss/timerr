@@ -1,14 +1,41 @@
 /* eslint-disable no-param-reassign */
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import bcrypt from "bcrypt"
 import type { NextAuthOptions } from "next-auth"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google"
 import Users from "../../../../models/user"
 import connectDB from "../../../../utils/connectDB"
+import clientPromise from "../../../../utils/mongodb"
 
 connectDB()
 export const authOptions: NextAuthOptions = {
+	adapter: MongoDBAdapter(clientPromise),
 	providers: [
+		GoogleProvider({
+			clientId: process.env.GOOGLE_CLIENT_ID!,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+			profile(profile) {
+				return {
+					id: profile.sub,
+					email: profile.email,
+					firstName: profile.name.split(" ")[0],
+					lastName: profile.name.split(" ")[1],
+					image: profile.picture,
+					coins: 0,
+					sessions: 0,
+					animals: [],
+					trees: [],
+					rank: "bronze",
+					username: profile.name,
+					bio: "",
+					time: 0,
+					isAdmin: false,
+				}
+			},
+		}),
+
 		CredentialsProvider({
 			id: "credentials",
 			name: "my-project",
@@ -16,7 +43,7 @@ export const authOptions: NextAuthOptions = {
 				email: {
 					label: "email",
 					type: "email",
-					placeholder: "jsmith@example.com",
+					placeholder: "js@example.com",
 				},
 				password: { label: "Password", type: "password" },
 			},
@@ -39,7 +66,14 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		jwt: async ({ token, user }) => {
-			user && (token.user = user)
+			user &&
+				(token.user = {
+					id: user._id ? user._id : user.id,
+					email: user.email,
+					image: user.image,
+					username: user.username,
+					isAdmin: user.isAdmin,
+				})
 			return token
 		},
 		session: async ({ session, token }) => {

@@ -34,9 +34,14 @@ export default async function handler(
 					if (user.coins > animal.price) {
 						user.animals.push(req.body.animal)
 						user.coins -= animal.price
-						user.animals.sort((a, b) => b.price - a.price)
+						user.animals.sort((a: any, b: any) => b.price - a.price)
 						await user.save()
-						return res.status(200).json({ user, message: "Animal bought" })
+						return res
+							.status(200)
+							.json({
+								user: { id: user._id, ...user._doc },
+								message: "Animal bought",
+							})
 					}
 					return res
 						.status(400)

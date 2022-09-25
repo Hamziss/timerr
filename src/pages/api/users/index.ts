@@ -128,7 +128,6 @@ export default async function handlerUsers(
 				if (error instanceof Error) {
 					return res.status(400).json({
 						error: error.message,
-
 						message: "error in delete user controller",
 					})
 				}

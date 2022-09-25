@@ -12,6 +12,7 @@ const useDropDownItem = () => {
 	const Router = useRouter()
 	const { logout } = useStore()
 	const { data: session } = useSession()
+	console.log("session", session)
 	const DropdownItems = [
 		{
 			label: "Dashboard",
@@ -30,7 +31,7 @@ const useDropDownItem = () => {
 		},
 		{
 			label: "Profile",
-			url: `users/${session?.user._id}`,
+			url: `users/${session?.user?.id}`,
 			icon: <Image src={UserIcon} />,
 		},
 		{

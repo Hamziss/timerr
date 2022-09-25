@@ -44,7 +44,7 @@ const UserPage = ({ user }: Props) => {
 						<div className={classes.profileImage}>
 							<Image objectFit="contain" layout="fill" src={user.image} />
 						</div>
-						{data?.user?._id === user._id && (
+						{data?.user?.id === user.id && (
 							<>
 								<button
 									onClick={handleClickOpen}

@@ -30,9 +30,9 @@ const Navbar = () => {
 
 	useEffect(() => {
 		if (status === "authenticated") {
-			getUser(session.user?._id!)
+			getUser(session.user?.id!)
 		}
-	}, [userState, getUser, status, session?.user?._id])
+	}, [userState, getUser, status, session?.user?.id])
 
 	const pagesWithoutNavbar = ["/auth/signin", "/auth/signup"]
 
@@ -92,7 +92,7 @@ const Navbar = () => {
 				<>
 					<div className={classes.rightContainer}>
 						<span className={classes.username}>
-							{userState.datauser.username}
+							{userState.datauser?.username}
 						</span>
 						<Avatar
 							alt="Remy Sharp"
@@ -102,7 +102,7 @@ const Navbar = () => {
 								cursor: "pointer",
 								marginRight: "20px",
 							}}
-							src={userState.datauser.image}
+							src={userState.datauser?.image}
 							onClick={() => setIsOpen(!isOpen)}
 						/>
 					</div>

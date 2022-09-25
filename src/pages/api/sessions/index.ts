@@ -57,7 +57,7 @@ export default async function sessionHandler(
 				)
 
 				if (!user) return res.status(404).json({ msg: "User not found" })
-				return res.status(200).json({ user })
+				return res.status(200).json({ user: { id: user._id, ...user._doc } })
 			} catch (error) {
 				if (error instanceof Error) {
 					return res.status(400).json({
