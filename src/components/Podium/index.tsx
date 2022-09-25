@@ -17,7 +17,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image height={50} width={50} src={secondPlace} />
 			</div>
-			<Link href={`/users/${users[1]._id}`}>
+			<Link href={`/users/${users[1].id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image
@@ -38,7 +38,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image objectFit="contain" height={65} width={65} src={firstPlace} />
 			</div>
-			<Link href={`/users/${users[0]._id}`}>
+			<Link href={`/users/${users[0].id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image
@@ -59,7 +59,7 @@ const Podium = ({ users }: Props) => (
 			<div>
 				<Image objectFit="contain" height={40} width={40} src={third} />
 			</div>
-			<Link href={`/users/${users[2]._id}`}>
+			<Link href={`/users/${users[2].id}`}>
 				<div>
 					<div className={classes.imgContainer}>
 						<Image

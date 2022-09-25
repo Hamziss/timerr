@@ -21,9 +21,9 @@ const RankingTable = ({ users }: Props) => (
 					return null
 				}
 				return (
-					<div key={user._id} className={classes.row}>
+					<div key={user.id} className={classes.row}>
 						<span>{index + 1}</span>
-						<Link href={`/users/${user._id}`}>
+						<Link href={`/users/${user.id}`}>
 							<span style={{ cursor: "pointer" }}>{user.username}</span>
 						</Link>
 						<span>{FormatTimetoHours(user.time)}</span>

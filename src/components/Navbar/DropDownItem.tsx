@@ -12,7 +12,7 @@ const useDropDownItem = () => {
 	const Router = useRouter()
 	const { logout } = useStore()
 	const { data: session } = useSession()
-	console.log("session", session)
+
 	const DropdownItems = [
 		{
 			label: "Dashboard",
