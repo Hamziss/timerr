@@ -65,7 +65,7 @@ const userStore = (set: any) => ({
 			{ headers }
 		)
 		const { user } = res.data
-		console.log("res.data", res.data)
+
 		set((state: any) => {
 			state.userState.datauser = user
 		})

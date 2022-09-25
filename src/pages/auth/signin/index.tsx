@@ -27,19 +27,6 @@ export default function SignIn() {
 				<p>Enter your credentials to access your account </p>
 				<button
 					type="submit"
-					className={classes.githubBtn}
-					onClick={() =>
-						signIn("github", {
-							redirect: false,
-							callbackUrl: `${window.location.origin}`,
-						})
-					}
-				>
-					sign in with github
-				</button>
-
-				<button
-					type="submit"
 					className={classes.googleBtn}
 					onClick={() =>
 						signIn("google", {
