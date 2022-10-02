@@ -63,8 +63,9 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
+<a href="https://github.com/Hamziss/timerr">
 ![Peek ](/public/images/demo.png)
-
+</a>
 
 timerr is a free productivity web app. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. :smile:.
 
