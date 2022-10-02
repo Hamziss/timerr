@@ -19,7 +19,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="[https://github.com/Hamziss/Skribblio-Front](https://github.com/Hamziss/timerr)">
+  <a href="https://github.com/Hamziss/timerr">
     <img src="/public/images/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 
