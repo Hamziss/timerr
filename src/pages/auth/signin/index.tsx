@@ -8,7 +8,6 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import * as Yup from "yup"
 import logo from "../../../../public/images/logo.png"
-import Signin from "../../../../public/images/Signin.png"
 import classes from "./style.module.css"
 
 export default function SignIn() {
@@ -143,9 +142,7 @@ export default function SignIn() {
 					</Link>
 				</p>
 			</div>
-			<div className={classes.bgWave}>
-				<Image objectFit="contain" src={Signin} />
-			</div>
+			<div className={classes.bgWave} />
 		</div>
 	)
 }

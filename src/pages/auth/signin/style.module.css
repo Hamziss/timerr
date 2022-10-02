@@ -1,148 +1,158 @@
 .bgWave {
-	background-image: url("../../../../public/images/bgwave.svg");
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	width: 50%;
-	display: flex;
-	position: relative;
+    background-image: url("../../../../public/images/bgwave.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bgWave>div {
+    position: relative;
+    height: 90%;
+    width: 75%;
 }
 
 .signInWrapper {
-	display: flex;
-	height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
 .googleBtn,
 .githubBtn {
-	width: 100%;
-	margin-top: 20px;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 54px;
-	gap: 15px;
-	box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 10%);
-	border-radius: 10px;
-	transition-delay: 0.051s;
+    width: 100%;
+    margin-top: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 54px;
+    gap: 15px;
+    box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 10%);
+    border-radius: 10px;
+    transition-delay: 0.051s;
 }
 
 .githubBtn {
-	color: white;
-	background-color: #22272b;
+    color: white;
+    background-color: #22272b;
 }
 
 .googleBtn:hover {
-	box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 15%);
+    box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 15%);
 }
 
 .githubBtn:hover {
-	box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 25%);
+    box-shadow: 0px 0px 18px 4px rgb(0 0 0 / 25%);
 }
 
 .formWrapper {
-	width: 50%;
-	padding: 0 3vw;
-	font-family: "Poppins", sans-serif;
+    width: 50%;
+    max-width: 450px;
+    padding: 0 2vw;
+    font-family: "Poppins", sans-serif;
 }
 
 .signinContainer {
-	display: flex;
-	height: 100vh;
+    display: flex;
+    min-height: 100vh;
 }
 
-.formWrapper > h1 {
-	font-size: clamp(25px, 2.5vw, 50px);
+.formWrapper>h1 {
+    font-size: clamp(25px, 2.5vw, 50px);
 }
 
-.formWrapper > p {
-	opacity: 0.8;
+.formWrapper>p {
+    opacity: 0.8;
 }
 
 .google {
-	width: 100%;
-	display: flex;
-	padding: 10px;
-	justify-content: center;
-	border: 0.01px solid #000000;
-	box-shadow: 0px 1px 47px -15px rgb(0 0 0 / 25%);
-	border-radius: 6px;
-	background: #f5f5f5;
-	gap: 10px;
-	box-sizing: border-box;
-	margin-top: 37px;
-	align-items: center;
-	cursor: pointer;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    border: 0.01px solid #000000;
+    box-shadow: 0px 1px 47px -15px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    background: #f5f5f5;
+    gap: 10px;
+    box-sizing: border-box;
+    margin-top: 37px;
+    align-items: center;
+    cursor: pointer;
 }
 
 .separator {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	opacity: 0.5;
-	margin: 32px 0;
-	justify-content: space-around;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    opacity: 0.5;
+    margin: 32px 0;
+    justify-content: space-around;
 }
 
-.separator > div {
-	height: 1px;
-	width: 50%;
-	background-color: #d9d9d9;
-	border-radius: 10px;
+.separator>div {
+    height: 1px;
+    width: 50%;
+    background-color: #d9d9d9;
+    border-radius: 10px;
 }
 
 .logo {
-	margin-top: 20px;
-	cursor: pointer;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 .boxInput {
-	margin-top: 20px;
+    margin-top: 20px;
 }
 
 .input {
-	width: 100%;
-	padding: 10px;
-	border: 0.01px solid #cecece;
-	box-shadow: 0px 1px 35px -12px rgb(0 0 0 / 25%);
-	border-radius: 6px;
-	background: #fafafa;
-	font-size: clamp(16px, 1.5vw, 20px);
+    width: 100%;
+    padding: 10px;
+    border: 0.01px solid #cecece;
+    box-shadow: 0px 1px 35px -12px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    background: #fafafa;
+    font-size: clamp(16px, 1.5vw, 20px);
 }
 
 .btnSubmit {
-	width: 100%;
-	display: flex;
-	padding: 10px;
-	justify-content: center;
-	border: 0.01px solid #9f9f9f;
-	box-shadow: 0px 1px 47px -25px rgb(0 0 0 / 25%);
-	border-radius: 6px;
-	background: var(--main-orange);
-	margin-top: 47px;
-	color: white;
-	box-sizing: border-box;
-	cursor: pointer;
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    border: 0.01px solid #9f9f9f;
+    box-shadow: 0px 1px 47px -25px rgb(0 0 0 / 25%);
+    border-radius: 6px;
+    background: var(--main-orange);
+    margin-top: 47px;
+    color: white;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
 .errorText {
-	color: rgb(218, 77, 77);
+    color: rgb(218, 77, 77);
 }
 
 .signup {
-	color: var(--main-orange);
-	cursor: pointer;
+    color: var(--main-orange);
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
-	.signinContainer {
-		flex-direction: column;
-	}
-	.formWrapper {
-		width: 100%;
-	}
-	.bgWave {
-		display: none;
-	}
+    .signinContainer {
+        flex-direction: column;
+    }
+    .formWrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+    .bgWave {
+        display: none;
+    }
 }
