@@ -28,7 +28,7 @@
   <p align="center">
     A Multiplayer Draw and guess game !
     <br />
-    <a href="https://github.com/Hamziss/timerr"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Hamziss/timerr/#readme"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://timerr-dev.vercel.app/">View Demo</a>
