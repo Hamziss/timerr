@@ -31,11 +31,11 @@
     <a href="https://github.com/Hamziss/Skribblio-Front"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://drawilio.netlify.app/">View Demo</a>
+    <a href="https://timerr-dev.vercel.app/">View Demo</a>
     ·
-    <a href="https://github.com/Hamziss/Drawilio/issues">Report Bug</a>
+    <a href="https://github.com/Hamziss/timerr/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Hamziss/Drawilio/issues">Request Feature</a>
+    <a href="https://github.com/Hamziss/timerr/issues">Request Feature</a>
   </p>
 </div>
 
