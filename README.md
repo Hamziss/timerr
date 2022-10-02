@@ -66,7 +66,7 @@
 ![Peek ](Drawilio-Front/public/preview.gif)
 
 
-timerr is a free producivity web app. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. :smile:.
+timerr is a free productivity web app. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. :smile:.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
