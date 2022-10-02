@@ -19,11 +19,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Hamziss/Skribblio-Front">
+  <a href="[https://github.com/Hamziss/Skribblio-Front](https://github.com/Hamziss/timerr)">
     <img src="/public/images/favicon.ico" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Drawilio</h3>
+  <h3 align="center">Timerr</h3>
 
   <p align="center">
     A Multiplayer Draw and guess game !
