@@ -63,7 +63,7 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-![Peek ](Drawilio-Front/public/images/demo.png)
+![Peek ](/public/images/demo.png)
 
 
 timerr is a free productivity web app. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. :smile:.
