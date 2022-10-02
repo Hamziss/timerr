@@ -78,11 +78,11 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 						<div className={classes.textSide}>
 							<span>New Release ! </span>
 							<strong>
-								Bimbo The New Creature <br />
+								{epiqueAnimals[4].name} The New Creature <br />
 								Is Out
 							</strong>
 							<button
-								onClick={() => handleBuy(legendaryAnimals[1])}
+								onClick={() => handleBuy(epiqueAnimals[4])}
 								type="submit"
 							>
 								Purchase
@@ -93,7 +93,7 @@ const Store = ({ epiqueAnimals, legendaryAnimals, rareAnimals }: Props) => {
 								width={280}
 								objectFit="contain"
 								height={280}
-								src={legendaryAnimals[1].image}
+								src={epiqueAnimals[4].image}
 							/>
 						</div>
 						<div className={classes.girafeContainer}>
