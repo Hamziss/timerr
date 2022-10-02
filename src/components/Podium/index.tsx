@@ -6,6 +6,7 @@ import secondPlace from "../../../public/images/Users/secondPlace.png"
 import { FormatTimetoHours } from "../../../utils/helpers"
 import classes from "./style.module.css"
 
+
 type Props = {
 	users: any[]
 }

@@ -1,7 +1,7 @@
 // TODO: remplace localhost by the correct url
 
 const getData = async(url, token) => {
-    const res = await fetch(`${process.env.BASE_URL}/api/${url}`, {
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/api/${url}`, {
         method: "GET",
         headers: {
             "Authorization": token
