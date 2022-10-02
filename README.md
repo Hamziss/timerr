@@ -28,7 +28,7 @@
   <p align="center">
     A Multiplayer Draw and guess game !
     <br />
-    <a href="https://github.com/Hamziss/timerr"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Hamziss/timerr/#readme"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://timerr-dev.vercel.app/">View Demo</a>
@@ -63,9 +63,10 @@
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-![Peek ](/public/images/demo.png)
 
-
+<a href="https://timerr-dev.vercel.app/">
+    <img src="/public/images/demo.png" alt="Logo" width="100%" >
+ </a>
 timerr is a free productivity web app. The goal of this app is to help you to be productive and focus on any task you are working on it can be anything , for example studying, writing, or coding. :smile:.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
