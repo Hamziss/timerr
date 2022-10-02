@@ -38,6 +38,19 @@ export default function SignIn() {
 					<Image width={20} height={20} src="/images/google.png" />
 					Sign in with Google
 				</button>
+				<button
+					type="submit"
+					className={classes.githubBtn}
+					onClick={() =>
+						signIn("github", {
+							redirect: false,
+							callbackUrl: `${window.location.origin}`,
+						})
+					}
+				>
+					<Image width={20} height={20} src="/images/github.png" />
+					Sign in with Github
+				</button>
 				<div className={classes.separator}>
 					<div className={classes.firsthalf} />
 					OR

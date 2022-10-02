@@ -4,6 +4,7 @@ import bcrypt from "bcrypt"
 import type { NextAuthOptions } from "next-auth"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GitHubProvider, { GithubProfile } from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import Users from "../../../../models/user"
 import connectDB from "../../../../utils/connectDB"
@@ -13,6 +14,28 @@ connectDB()
 export const authOptions: NextAuthOptions = {
 	adapter: MongoDBAdapter(clientPromise),
 	providers: [
+		GitHubProvider({
+			clientId: process.env.GITHUB_ID!,
+			clientSecret: process.env.GITHUB_SECRET!,
+			profile(profile: GithubProfile) {
+				return {
+					id: profile.id.toString(),
+					email: profile.email,
+					firstName: profile.name ?? profile.login,
+					lastName: "",
+					image: profile.avatar_url,
+					coins: 0,
+					sessions: 0,
+					animals: [],
+					trees: [],
+					rank: "bronze",
+					username: profile.login,
+					bio: "",
+					time: 0,
+					isAdmin: false,
+				}
+			},
+		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_CLIENT_ID!,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
