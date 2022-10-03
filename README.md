@@ -26,7 +26,7 @@
   <h3 align="center">Timerr</h3>
 
   <p align="center">
-    A Multiplayer Draw and guess game !
+    A Pomodoro timer App for Productivity !
     <br />
     <a href="https://github.com/Hamziss/timerr/#readme"><strong>Explore the docs »</strong></a>
     <br />
