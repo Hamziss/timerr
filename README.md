@@ -102,8 +102,9 @@ To get a local copy up you have to first create a cluster in redis cloud .
    ```sh
    git clone https://github.com/Hamziss/timerr.git
    ```
-3. Install NPM packages inside Drawilio-Api and Drawilio-Front
+3. Install NPM packages 
    ```sh
+   cd timerr
    npm install
    ```
 4. Enter this env variables in `.env`
