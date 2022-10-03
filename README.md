@@ -119,9 +119,9 @@ To get a local copy up you have to first create a cluster in redis cloud .
     GITHUB_ID=
     GITHUB_SECRET=
    ```
-5. start the server and the front with two terminal by running :
+5. start the server by :
    ```
-   npm start
+   npm run dev
    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
