@@ -78,6 +78,7 @@ timerr is a free productivity web app. The goal of this app is to help you to be
 - [NextJS](https://nextjs.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [zustand](https://github.com/pmndrs/zustand)
+- [next-auth](https://next-auth.js.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
