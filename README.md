@@ -26,7 +26,7 @@
   <h3 align="center">Timerr</h3>
 
   <p align="center">
-    A Multiplayer Draw and guess game !
+    A Pomodoro timer App for Productivity !
     <br />
     <a href="https://github.com/Hamziss/timerr/#readme"><strong>Explore the docs »</strong></a>
     <br />
@@ -78,6 +78,7 @@ timerr is a free productivity web app. The goal of this app is to help you to be
 - [NextJS](https://nextjs.org/)
 - [MongoDB](https://www.mongodb.com/)
 - [zustand](https://github.com/pmndrs/zustand)
+- [next-auth](https://next-auth.js.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -102,8 +103,9 @@ To get a local copy up you have to first create a cluster in redis cloud .
    ```sh
    git clone https://github.com/Hamziss/timerr.git
    ```
-3. Install NPM packages inside Drawilio-Api and Drawilio-Front
+3. Install NPM packages 
    ```sh
+   cd timerr
    npm install
    ```
 4. Enter this env variables in `.env`
@@ -119,9 +121,9 @@ To get a local copy up you have to first create a cluster in redis cloud .
     GITHUB_ID=
     GITHUB_SECRET=
    ```
-5. start the server and the front with two terminal by running :
+5. start the server by :
    ```
-   npm start
+   npm run dev
    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
