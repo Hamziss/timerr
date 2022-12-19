@@ -9,18 +9,20 @@ import { useCallback, useEffect, useState } from "react"
 
 import dynamic from "next/dynamic"
 import {
-	buildStyles,
 	CircularProgressbarWithChildren,
+	buildStyles,
 } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
-import Bousole from "../../../public/images/Home/bousole.png"
 import Clock from "../../../public/images/Home/Clock.png"
+import Bousole from "../../../public/images/Home/bousole.png"
+import Spotify from "../../../public/images/spotify.png"
 import { formatTime, updateFavicon, updateTitle } from "../../../utils/helpers"
 import useCountdown from "../../hooks/useCountdown"
 import useStore from "../../zustand/store"
+import PlaylistSpotify from "../PlayListSpotify"
 import Settings from "../Settings"
-import completeHandler, { handleMode } from "./handlers"
 import RadialSeparators from "./Separtors"
+import completeHandler, { handleMode } from "./handlers"
 import classes from "./style.module.css"
 
 const Confetti = dynamic(() => import("react-canvas-confetti"), { ssr: false })
@@ -33,6 +35,7 @@ const Timer = () => {
 	const [mode, setmode] = useState("POMODORO")
 	const [fireConfetti, setFireConfetti] = useState(false)
 	const [showSettings, setShowSettings] = useState(false)
+	const [showPlaylist, setShowPlaylist] = useState(false)
 	const [pomodoroCount, setPomodoroCount] = useState(0)
 
 	const { ticking, start, stop, reset, timeLeft, progress } = useCountdown({
@@ -91,6 +94,11 @@ const Timer = () => {
 					setShowSettings={setShowSettings}
 				/>
 			)}
+			<PlaylistSpotify
+				showPlaylist={showPlaylist}
+				setShowPlaylist={setShowPlaylist}
+			/>
+
 			<div className={classes.confettiContainer}>
 				<Confetti
 					onDecay={() => setFireConfetti(false)}
@@ -147,6 +155,13 @@ const Timer = () => {
 					</button>
 					<button type="submit" onClick={() => setShowSettings(true)}>
 						<SettingsIcon />
+					</button>
+					<button
+						onClick={() => setShowPlaylist(true)}
+						className={classes.spotBtn}
+						type="submit"
+					>
+						<Image src={Spotify} width={30} height={30} />
 					</button>
 				</div>
 				<div className={classes.countDownContainer}>
