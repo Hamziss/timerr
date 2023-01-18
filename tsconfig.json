@@ -24,7 +24,7 @@
 		"src/pages/api/auth/[...nextauth].ts",
 		"src/pages/users/[id].jsx",
 		"src/zustand/userStore.ts",
-		"src/zustand/store.ts",
+		"src/zustand/store.js",
 		"src/theme/index.js",
 		"src/components/Timer/Separtors.js",
 		"src/hooks/useClickOutside.js"
