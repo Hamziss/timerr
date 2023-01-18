@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { FormatTimetoHours } from "../../../utils/helpers"
+import { FormatTimetoHours } from "../../utils/helpers"
 import classes from "./style.module.css"
 
 type Props = {

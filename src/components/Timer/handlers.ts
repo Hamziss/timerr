@@ -1,6 +1,6 @@
 import { toast } from "react-toastify"
-import { updateFavicon } from "../../../utils/helpers"
 import { ISettings } from "../../types/settings"
+import { updateFavicon } from "../../utils/helpers"
 
 export default function completeHandler({
 	settings,

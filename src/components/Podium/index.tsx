@@ -3,9 +3,8 @@ import Link from "next/link"
 import third from "../../../public/images/Users/3.png"
 import firstPlace from "../../../public/images/Users/firstPlace.png"
 import secondPlace from "../../../public/images/Users/secondPlace.png"
-import { FormatTimetoHours } from "../../../utils/helpers"
+import { FormatTimetoHours } from "../../utils/helpers"
 import classes from "./style.module.css"
-
 
 type Props = {
 	users: any[]

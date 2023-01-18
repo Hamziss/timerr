@@ -5,7 +5,7 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { Session } from "next-auth"
 import { unstable_getServerSession as getSession } from "next-auth/next"
 import Users from "../../../../models/user"
-import connectDB from "../../../../utils/connectDB"
+import connectDB from "../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
 export default async function handlerUsers(
@@ -15,7 +15,7 @@ export default async function handlerUsers(
 	const { method } = req
 	const { firstName, lastName, email, password, image, username, bio } =
 		req.body
-	await connectDB()
+	connectDB()
 	switch (method) {
 		case "GET":
 			// @desc get all users
@@ -120,7 +120,7 @@ export default async function handlerUsers(
 			// @access Private
 
 			try {
-				const user = await Users.findOne({ emailUser })
+				const user = await Users.findOne({ email })
 				if (!user) return res.status(404).json({ error: "User not found." })
 				await user.remove()
 				return res.status(200).json({ msg: "User deleted successfully." })

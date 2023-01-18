@@ -1,9 +1,9 @@
 import Image from "next/image"
+import { IAnimal } from "../../types/animal"
 import {
 	chooseBgColorCard,
 	choosebgColorUpperDivCard,
-} from "../../../utils/helpers"
-import { IAnimal } from "../../types/animal"
+} from "../../utils/helpers"
 import classes from "./style.module.css"
 
 type Props = {

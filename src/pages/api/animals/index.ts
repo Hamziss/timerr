@@ -2,7 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { unstable_getServerSession as getSession } from "next-auth/next"
 import Animal from "../../../../models/animal"
-import connectDB from "../../../../utils/connectDB"
+import connectDB from "../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
 export default async function animalshandler(

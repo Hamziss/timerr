@@ -7,8 +7,8 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import GitHubProvider, { GithubProfile } from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import Users from "../../../../models/user"
-import connectDB from "../../../../utils/connectDB"
-import clientPromise from "../../../../utils/mongodb"
+import connectDB from "../../../utils/connectDB"
+import clientPromise from "../../../utils/mongodb"
 
 connectDB()
 export const authOptions: NextAuthOptions = {

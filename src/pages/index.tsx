@@ -13,17 +13,17 @@ import leftCorne from "../../public/images/Home/leftCorne.svg"
 import rightCorne from "../../public/images/Home/rightCorne.png"
 import Sinjab from "../../public/images/Home/sinjab.png"
 import Sparkle from "../../public/images/Home/sparkle.png"
-import {
-	FOURTH_BUBBLE_TEXT,
-	quotes,
-	SECOND_BUBBLE_TEXT,
-	STORE_PARAGARAPH,
-	THIRD_BUBBLE_TEXT,
-} from "../../utils/constants"
-import { getRandomQuote } from "../../utils/helpers"
 import Footer from "../components/Footer"
 import Timer from "../components/Timer"
 import classes from "../styles/Home.module.css"
+import {
+	FOURTH_BUBBLE_TEXT,
+	SECOND_BUBBLE_TEXT,
+	STORE_PARAGARAPH,
+	THIRD_BUBBLE_TEXT,
+	quotes,
+} from "../utils/constants"
+import { getRandomQuote } from "../utils/helpers"
 
 interface Props {
 	quote: {

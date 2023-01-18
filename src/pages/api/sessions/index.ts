@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken"
 import type { NextApiRequest, NextApiResponse } from "next"
 import { unstable_getServerSession as getSession } from "next-auth/next"
 import Users from "../../../../models/user"
-import connectDB from "../../../../utils/connectDB"
+import connectDB from "../../../utils/connectDB"
 import { authOptions } from "../auth/[...nextauth]"
 
 interface IPayloadJWT {

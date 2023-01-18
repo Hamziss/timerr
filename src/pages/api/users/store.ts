@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { unstable_getServerSession as getSession } from "next-auth/next"
 import Users from "../../../../models/user"
-import connectDB from "../../../../utils/connectDB"
 import { IAnimal } from "../../../types/animal"
+import connectDB from "../../../utils/connectDB"
 
 import { authOptions } from "../auth/[...nextauth]"
 
@@ -36,12 +36,10 @@ export default async function handler(
 						user.coins -= animal.price
 						user.animals.sort((a: any, b: any) => b.price - a.price)
 						await user.save()
-						return res
-							.status(200)
-							.json({
-								user: { id: user._id, ...user._doc },
-								message: "Animal bought",
-							})
+						return res.status(200).json({
+							user: { id: user._id, ...user._doc },
+							message: "Animal bought",
+						})
 					}
 					return res
 						.status(400)

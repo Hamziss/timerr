@@ -6,14 +6,14 @@ import concept from "../../../public/images/About/concept.png"
 import garden from "../../../public/images/About/garden.png"
 import ranking from "../../../public/images/About/ranking.png"
 import store from "../../../public/images/About/store.png"
+import Footer from "../../components/Footer"
+import classes from "../../styles/about.module.css"
 import {
 	ABOUT_CONCEPT,
 	ABOUT_GARDEN,
 	ABOUT_RANKING,
 	ABOUT_STORE,
-} from "../../../utils/constants"
-import Footer from "../../components/Footer"
-import classes from "../../styles/about.module.css"
+} from "../../utils/constants"
 
 const AboutPage = () => (
 	<>

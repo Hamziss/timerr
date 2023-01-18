@@ -1,9 +1,9 @@
 import axios from "axios"
 import jwt from "jsonwebtoken"
 import { toast } from "react-toastify"
-import { choosetree } from "../../utils/helpers"
 import { IAnimal } from "../types/animal"
 import { IUser } from "../types/user"
+import { choosetree } from "../utils/helpers"
 
 const userState = {
 	datauser: {} as unknown as IUser,
